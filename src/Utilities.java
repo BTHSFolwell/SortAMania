@@ -46,4 +46,29 @@ public class Utilities {
     public static int randInt(int min, int max){
         return min + (int)(Math.random() * ((max - min) + 1));
     }
+    public static void quickSortString(String[] arr, int left, int right) {
+        if (left < right) {
+            int pivot = partitionString(arr, left, right);
+            quickSortString(arr, left, pivot-1);
+            quickSortString(arr, pivot+1, right);
+        }
+    }
+    public static int partitionString(String[] arr, int left, int right) {
+        String pivot = arr[right];
+        int i = left-1;
+        for (int j = left; j < right; j++) {
+            if (arr[j].compareTo(pivot) <= 0) {
+                i++;
+                swapString(arr, i, j);
+            }
+        }
+        swapString(arr, i+1, right);
+        return i+1;
+    }
+
+    public static void swapString(String[] list1, int i, int j) {
+        String temp = list1[i];
+        list1[i] = list1[j];
+        list1[j] = temp;
+    }
 }
