@@ -30,32 +30,60 @@ public class Team16SortCompetition extends SortCompetition {
         }
 
     public int challengeTwo(String[] arr, String query) {
-
-    }
-        private void bucketSort(String[] arr, int x, int y) {
-            int[] z = new int[28];
-            for (int i = 0; i < z.length; i ++) {
-                z[i] = 0;
-            }
-            for (int i = 0; i < arr.length; i ++) {
-                z[arr[i].compareTo("a")] ++;
+        for (int i = 0; i < arr.length; i ++) {
+            for (int j = 0; j < arr.length; j ++) {
+                if (arr[i].compareTo(arr[j]) > 0) {
+                    String k = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = k;
+                }
             }
         }
+        boolean x = false; int lwr = 0; int upr = arr.length - 1; int mid = arr.length/2 - 1;
+        while (!x) {
+            if (query.compareTo(arr[mid]) > 0) {
+                lwr = mid; mid = (upr - lwr) / 2;
+            }
+            else if (query.compareTo(arr[mid]) < 0) {
+                upr = mid; mid = (upr - lwr) / 2;
+            }
+            else return mid;
+            if (upr == lwr) {
+                x = true;
+            }
+        }
+        return -1;
+    }
 
     public int challengeThree(int[] arr) {
-
+        for (int i = 0; i < arr.length; i ++) {
+            for (int j = 0; j < arr.length; j ++) {
+                if (arr[i] > arr[j]) {
+                    int k = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = k;
+                }
+            }
+        }
+        return arr[(arr.length / 2) - 1];
     }
 
     public int challengeFour(int[][] arr) {
-
+        int[] medians = new int[arr.length];
+        for (int i = 0; i < arr.length; i ++) {
+            quickSort(arr[i], 0, arr[i].length - 1);
+            medians[i] = arr[i][arr[i].length/2 - 1];
+        }
+        quickSort(medians, 0, medians.length - 1);
+        return medians[medians.length/2 - 1];
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
-
+        return 0;
     }
 
     public String greeting() {
-
+        return "sup";
     }
 }
 /*
