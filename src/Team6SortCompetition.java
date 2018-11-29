@@ -38,14 +38,14 @@ public class Team6SortCompetition extends SortCompetition {
     }
 
     public int challengeFour(int[][] arr){
-
+        return 0;
     }
 
     public int challengeFive(Comparable[] arr, Comparable query){
-
+        return 0;
     }
 
     public String greeting(){
-
+        return "Hello!";
     }
 }

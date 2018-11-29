@@ -71,4 +71,14 @@ public class Utilities {
         list1[i] = list1[j];
         list1[j] = temp;
     }
+    public static int[] mostlySortedArr(int sorted, int unsorted){
+        int[] arr = new int[sorted + unsorted];
+        for(int i = 0; i < sorted; i++){
+            arr[i] = i;
+        }
+        for(int i = sorted; i < sorted + unsorted; i++){
+            arr[i] = randInt(0,100000);
+        }
+        return arr;
+    }
 }
