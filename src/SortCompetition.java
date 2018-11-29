@@ -1,8 +1,7 @@
+import java.util.Arrays;
 
 public abstract class SortCompetition implements Comparable <SortCompetition> {
-	
-	
-	
+
 	int number;
 	double totalTime = 0.0;
 	
