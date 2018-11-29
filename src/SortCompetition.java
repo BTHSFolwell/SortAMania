@@ -1,8 +1,6 @@
 
 public abstract class SortCompetition implements Comparable <SortCompetition> {
-	
-	
-	
+
 	int number;
 	double totalTime = 0.0;
 	
@@ -15,6 +13,7 @@ public abstract class SortCompetition implements Comparable <SortCompetition> {
 	{
 		number = n;
 	}
+
 	public int getNum()
 	{
 		return number; 
