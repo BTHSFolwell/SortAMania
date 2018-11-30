@@ -54,7 +54,7 @@ public class Team6SortCompetition extends SortCompetition {
             }
         }
         for (int i = 0; i < medians.length; i++) {
-            Utilities.quickSortMedians(medians, 0, medians.length - 1);
+            Utilities.quickSortMedians(medians,arr, 0, medians.length - 1);
 
         }
         for (int i = 0; i < medians.length; i++) {

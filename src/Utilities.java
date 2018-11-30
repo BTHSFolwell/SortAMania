@@ -18,13 +18,26 @@ public class Utilities {
             quickSort(arr,pivot + 1, right);
         }
     }
-    public static void quickSortMedians(int[] arr, int left, int right){
+    public static void quickSortMedians(int[] arr, int[][] arr2, int left, int right){
         if(left < right){
-            int pivot = partition(arr,left,right);
-
-            quickSort(arr,left,pivot-1);
-            quickSort(arr,pivot + 1, right);
+            int pivot = partitionMedians(arr, arr2, left, right);
+            quickSortMedians(arr,arr2,left,pivot-1);
+            quickSortMedians(arr,arr2,pivot + 1, right);
         }
+    }
+    public static int partitionMedians(int[] arr, int[][] arr2, int left, int right){
+        int pivot = arr[right];
+        int i = left -1;
+        for(int j = left; j < right; j++){
+            if(arr[j] <= pivot){
+                i++;
+                swapMedians(arr, i ,j);
+                swapMedians(arr2, i, j);
+            }
+        }
+        swapMedians(arr, i+1, right);
+        swapMedians(arr2, i+1, right);
+        return i+1;
     }
     public static int partition(int[] arr, int left, int right){
         int pivot = arr[right];
@@ -39,6 +52,11 @@ public class Utilities {
         return i+1;
     }
     public static void swap(int[] arr, int pos1, int pos2){
+        int temp = arr[pos1];
+        arr[pos1] = arr[pos2];
+        arr[pos2] = temp;
+    }
+    public static void swapMedians(int[][] arr, int pos1, int pos2){
         int temp = arr[pos1];
         arr[pos1] = arr[pos2];
         arr[pos2] = temp;
