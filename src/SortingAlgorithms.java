@@ -330,7 +330,20 @@ class SortingAlgorithms {
         quickSort(arr, 0, arr.length - 1);
     }
 
+    static void quickSort(String[] arr) {
+        quickSort(arr, 0, arr.length - 1);
+    }
+
     static void quickSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int pivot = partition(arr, left, right);
+
+            quickSort(arr, left, pivot - 1);
+            quickSort(arr, pivot + 1, right);
+        }
+    }
+
+    static void quickSort(String[] arr, int left, int right) {
         if (left < right) {
             int pivot = partition(arr, left, right);
 
@@ -344,6 +357,19 @@ class SortingAlgorithms {
         int i = left - 1;
         for (int j = left; j < right; j++) {
             if (arr[j] <= pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, right);
+        return i + 1;
+    }
+
+    private static int partition(String[] arr, int left, int right) {
+        String pivot = arr[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (arr[j].compareTo(pivot) <= 0) {
                 i++;
                 swap(arr, i, j);
             }

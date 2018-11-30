@@ -15,11 +15,12 @@ public class Team8SortCompetition extends SortCompetition {
      * challengeTwo: String sorting and searching
      * Task: Sort the list and determine if it contains a given string.
      *
-     * @param arr an array of 10,000 random strings (strings will be of length 5).
+     * @param arr   an array of 10,000 random strings (strings will be of length 5).
      * @param query the string to search for.
      * @return the index of the first instance of {@code str}, or -1 if not found
      */
     public int challengeTwo(String[] arr, String query) {
+        SortingAlgorithms.quickSort(arr);
         for (int i = 0; i < arr.length; i++) {
             if (arr[i].equals(query))
                 return i;
@@ -63,7 +64,7 @@ public class Team8SortCompetition extends SortCompetition {
      * @param arr an array of 10,000 objects that implement the comparable interface.
      * @return the position of the object, or -1 if not found.
      */
-    public int challengeFive(Comparable[] arr , Comparable query) {
+    public int challengeFive(Comparable[] arr, Comparable query) {
         return -1;
     }
 
