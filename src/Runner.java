@@ -5,26 +5,35 @@ public class Runner {
         int[] randIntArr = randomIntsArr(10000);
         String[] randStringArr = randomStringArr(10000, 5);
 
-        System.out.println("Unsorted");
         printIntArr(randIntArr);
-
+        // Challenge 1
         long time = System.currentTimeMillis();
         int median = team16.challengeOne(randIntArr);
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge One Time Taken: " + time * 0.001 + " Seconds");
         System.out.println("Median equals: " + median);
 
-        System.out.println("Sorted");
         printIntArr(randIntArr);
-
+        // Challenge 2
+        printStringArr(randStringArr);
         time = System.currentTimeMillis();
         int index = team16.challengeTwo(randStringArr, "noooo");
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge Two Time Taken: " + time * 0.001 + " seconds.");
         System.out.println("The index of noooo is " + index);
-        System.out.println("Sorted");
         printStringArr(randStringArr);
 
+        // Challenge 4
+        int[][] rand2DIntArr = new int[1000][1000];
+        for (int i = 0; i < rand2DIntArr.length; i ++) {
+            rand2DIntArr[i] = randomIntsArr(1000);
+        }
+        print2DArr(rand2DIntArr);
+        time = System.currentTimeMillis();
+        median = team16.challengeFour(rand2DIntArr);
+        time = System.currentTimeMillis() - time;
+        System.out.println("Challenge Four Time Taken: " + time * 0.001 + " seconds.");
+        print2DArr(rand2DIntArr);
     }
 
 
@@ -61,5 +70,14 @@ public class Runner {
             output += arr[i] + ", ";
         }
         System.out.println(output);
+    }
+    public static void print2DArr(int[][] arr) {
+        String output = "";
+        for (int i = 0; i < arr.length; i ++) {
+            for (int j = 0; j < arr[i].length; j ++) {
+                output += "(" + i + ", " + j + "): " + arr[i][j];
+            }
+        }
+        return output;
     }
 }
