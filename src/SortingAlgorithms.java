@@ -34,7 +34,10 @@ class SortingAlgorithms {
         StringBuilder sb = new StringBuilder();
         for (int i : arr)
             sb.append(" ").append(i);
-        System.out.println(sb.substring(1, cutoff));
+        if (cutoff > arr.length)
+            System.out.println(sb.substring(1));
+        else
+            System.out.println(sb.substring(1, cutoff));
     }
 
     static void printArr(int[] arr) {
@@ -45,7 +48,10 @@ class SortingAlgorithms {
         StringBuilder sb = new StringBuilder();
         for (double d : arr)
             sb.append(" ").append(d);
-        System.out.println(sb.substring(1, cutoff));
+        if (cutoff > arr.length)
+            System.out.println(sb.substring(1));
+        else
+            System.out.println(sb.substring(1, cutoff));
     }
 
     static void printArr(double[] arr) {
@@ -56,7 +62,10 @@ class SortingAlgorithms {
         StringBuilder sb = new StringBuilder();
         for (String s : arr)
             sb.append(" ").append(s);
-        System.out.println(sb.substring(1, cutoff));
+        if (cutoff > arr.length)
+            System.out.println(sb.substring(1));
+        else
+            System.out.println(sb.substring(1, cutoff));
     }
 
     static void printArr(String[] arr) {
@@ -70,7 +79,10 @@ class SortingAlgorithms {
                 sb.append(" ").append(j);
             sb.append(" |");
         }
-        System.out.println(sb.substring(1, cutoff));
+        if (cutoff > arr.length)
+            System.out.println(sb.substring(1));
+        else
+            System.out.println(sb.substring(1, cutoff));
     }
 
     static void printArr(int[][] arr) {
