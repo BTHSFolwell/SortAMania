@@ -31,12 +31,12 @@ public class Utilities {
         for(int j = left; j < right; j++){
             if(arr[j] <= pivot){
                 i++;
-                swapMedians(arr, i ,j);
-                swapMedians(arr2, i, j);
+                swap(arr, i ,j);
+                swapMedians(arr2, i, j, i, j);
             }
         }
-        swapMedians(arr, i+1, right);
-        swapMedians(arr2, i+1, right);
+        swap(arr, i+1, right);
+        swapMedians(arr2, i+1, right, i+1, right);
         return i+1;
     }
     public static int partition(int[] arr, int left, int right){
@@ -56,10 +56,10 @@ public class Utilities {
         arr[pos1] = arr[pos2];
         arr[pos2] = temp;
     }
-    public static void swapMedians(int[][] arr, int pos1, int pos2){
-        int temp = arr[pos1];
-        arr[pos1] = arr[pos2];
-        arr[pos2] = temp;
+    public static void swapMedians(int[][] array, int i1, int j1, int i2, int j2) {
+        int tempObject = array[i1][j1];
+        array[i1][j1] = array[i2][j2];
+        array[i2][j2] = tempObject;
     }
     public static int[] genIntArr(int count){
         int[] arr = new int[count];

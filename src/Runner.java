@@ -6,6 +6,7 @@ public class Runner {
         SortCompetition sortComp = new Team6SortCompetition();
         int[] challenge1Arr = Utilities.genIntArr(10000);
         int[] challenge3Arr = Utilities.mostlySortedArr(75000,25000);
+        int[][] challenge4Arr = Utilities.
         //Challenge 1
         //System.out.println(Arrays.toString(challenge1Arr));
         long startTime = System.currentTimeMillis();
@@ -22,6 +23,6 @@ public class Runner {
         duration = (endTime - startTime);
         //System.out.println(Arrays.toString(challenge3Arr));
         System.out.println("Challenge 3 time: " + duration + "ms.\n");
-
+        System.out.println("Challenge 4 Median: " + sortComp.challengeFour(challenge4Arr));
     }
 }
