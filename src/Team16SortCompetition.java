@@ -32,7 +32,7 @@ public class Team16SortCompetition extends SortCompetition {
     public int challengeTwo(String[] arr, String query) {
         for (int i = 0; i < arr.length; i ++) {
             for (int j = 0; j < arr.length; j ++) {
-                if (arr[i].compareTo(arr[j]) > 0) {
+                if (arr[i].compareTo(arr[j]) <= 0) {
                     String k = arr[i];
                     arr[i] = arr[j];
                     arr[j] = k;
@@ -42,13 +42,13 @@ public class Team16SortCompetition extends SortCompetition {
         boolean x = false; int lwr = 0; int upr = arr.length - 1; int mid = arr.length/2 - 1;
         while (!x) {
             if (query.compareTo(arr[mid]) > 0) {
-                lwr = mid; mid = (upr - lwr) / 2;
+                lwr = mid; mid = ((upr - lwr) / 2) + lwr;
             }
             else if (query.compareTo(arr[mid]) < 0) {
-                upr = mid; mid = (upr - lwr) / 2;
+                upr = mid; mid = ((upr - lwr) / 2) + lwr;
             }
             else return mid;
-            if (upr == lwr) {
+            if (upr <= lwr || lwr == mid || upr == mid) {
                 x = true;
             }
         }

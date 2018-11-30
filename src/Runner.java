@@ -42,7 +42,7 @@ public class Runner {
         for (int i = 0; i < num; i ++) {
             String y = "";
             for (int j = 0; j < length; j ++) {
-                y += alphabet.charAt((int)(Math.random() * 25));
+                y += alphabet.charAt((int)(Math.random() * 26));
             }
             x[i] = y;
         }
@@ -51,14 +51,14 @@ public class Runner {
     public static void printIntArr(int[] arr) {
         String output = "";
         for (int i = 0; i < arr.length; i ++) {
-            output += arr[i];
+            output += arr[i] + ", ";
         }
         System.out.println(output);
     }
     public static void printStringArr(String[] arr) {
         String output = "";
         for (int i = 0; i < arr.length; i ++) {
-            output += arr[i];
+            output += arr[i] + ", ";
         }
         System.out.println(output);
     }
