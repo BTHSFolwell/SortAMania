@@ -16,6 +16,15 @@ public class Runner {
 
         System.out.println("Sorted");
         printIntArr(randIntArr);
+
+        time = System.currentTimeMillis();
+        int index = team16.challengeTwo(randStringArr, "noooo");
+        time = System.currentTimeMillis() - time;
+        System.out.println("Challenge Two Time Taken: " + time * 0.001 + " seconds.");
+        System.out.println("The index of noooo is " + index);
+        System.out.println("Sorted");
+        printStringArr(randStringArr);
+
     }
 
 
@@ -23,7 +32,7 @@ public class Runner {
     public static int[] randomIntsArr(int num) {
         int[] x = new int[num];
         for (int i = 0; i < num; i ++) {
-            x[i] = (int) (Math.random() * 100);
+            x[i] = (int) (Math.random() * 10001);
         }
         return x;
     }
@@ -40,13 +49,17 @@ public class Runner {
         return x;
     }
     public static void printIntArr(int[] arr) {
+        String output = "";
         for (int i = 0; i < arr.length; i ++) {
-            System.out.println(arr[i]);
+            output += arr[i];
         }
+        System.out.println(output);
     }
     public static void printStringArr(String[] arr) {
+        String output = "";
         for (int i = 0; i < arr.length; i ++) {
-            System.out.println(arr[i]);
+            output += arr[i];
         }
+        System.out.println(output);
     }
 }
