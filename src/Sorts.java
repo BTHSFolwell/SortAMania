@@ -61,4 +61,32 @@ public class Sorts
 
         }
     }
+
+    public static int parition3(int[] arr, int left, int right)
+    {
+        int pivot1 = randomNumber(left, right/2);
+        int pivot2 = randomNumber(right/2 + 1, right);
+
+        if(arr[pivot2] < arr[pivot1])
+        {
+            int temp = pivot1;
+            pivot1 = pivot2;
+            pivot2 = temp;
+        }
+
+        int j = left -1;
+        int k = 
+
+        for(int andrew = left; andrew < right;  andrew ++)
+        {
+            if(arr[andrew] <)
+        }
+
+
+    }
+
+    public static int randomNumber(int min, int max)
+    {
+        return (int)((max - min + 1) * Math.random() + min);
+    }
 }
