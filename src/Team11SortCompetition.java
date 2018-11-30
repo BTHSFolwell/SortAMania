@@ -1,27 +1,79 @@
 public class Team11SortCompetition extends SortCompetition {
 
-    public int challengeOne(int[] arr) {
-        int min = 0;
-        int max = 0;
-        for (int i = 0; i < arr.length; i++) {
-            min = Math.min(arr[i], arr[i + 1]);
-            max = Math.max(arr[i], arr[i + 1]);
+    public static void swapInt(int[] arr, int i, int j)
+    {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    public static void swapString(String[] arr, int i, int j)
+    {
+        String temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    public static int partition(int[] arr, int left, int right)
+    {
+        int pivot = arr[right];
+        int i = left - 1;
+        for(int j  = left; j <right;j++)
+        {
+            if(arr[j]<=pivot)
+            {
+                i++;
+                swapInt(arr,i,j);
+            }
         }
-        arr[0] = min;
-        arr[arr.length - 1] = max;
-        int mid = max / 2;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < mid) {
-                arr[mid - i] = arr[i];
-            } else if (arr[i] > mid) {
-                arr[mid + i] = arr[i];
+        swapInt(arr,i+1,right);
+        return i+1;
+    }
+    public static void quickSort(int[] arr,int left, int right)
+    {
+        if(left<right)
+        {
+            int pivot = partition(arr,left,right);
+
+            quickSort(arr,left,pivot - 1 );
+            quickSort(arr,pivot + 1, right);
+        }
+    }
+    public static void bubbleSort(String[] arr)
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j].compareTo(arr[j+1]) > 0) {
+                    swapString(arr, j, j + 1);
+                }
+            }
+        }
+
+    }
+
+
+
+    public int challengeOne(int[] arr) {
+        quickSort(arr,0,arr.length-1);
+        int mid = 0;
+        if(arr.length % 2 == 0)
+        for(int i = 0;i<arr.length/2;i++)
+        {
+            mid = (arr[i] + arr[i+1])/2;
+        }
+        else
+        {
+            for(int i = 0;i<arr.length/2;i++)
+            {
+                mid = arr[i+1];
             }
         }
         return mid;
     }
 
+
     public int challengeTwo(String[] arr, String query) {
-        return -1;
+        bubbleSort(arr);
+
     }
 
     public int challengeThree(int[] arr) {
