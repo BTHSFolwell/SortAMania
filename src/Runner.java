@@ -71,7 +71,7 @@ public class Runner {
         }
         System.out.println(output);
     }
-    public static void print2DArr(int[][] arr) {
+    public static String print2DArr(int[][] arr) {
         String output = "";
         for (int i = 0; i < arr.length; i ++) {
             for (int j = 0; j < arr[i].length; j ++) {
