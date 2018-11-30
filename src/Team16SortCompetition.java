@@ -29,4 +29,5 @@ public class Team16SortCompetition extends SortCompetition
     public String greeting() {
         return null;
     }
+
 }

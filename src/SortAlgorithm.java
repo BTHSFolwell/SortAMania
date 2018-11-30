@@ -1,15 +1,70 @@
 public class SortAlgorithm
 {
+    public static int[] randomIntsArr(int count)
+    {
+        int[] arr = new int[count];
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr[i] = (int)(Math.random()*count);
+        }
+        return arr;
+    }
+
+    public static void printArr(int[] arr)
+    {
+        String str = "";
+        for (int i = 0; i < arr.length; i++)
+        {
+            str = str + arr[i] + " ";
+        }
+        System.out.println(str);
+    }
+
+    public static void printArr(String[] arr)
+    {
+        String str = "";
+        for (int i = 0; i < arr.length; i++)
+        {
+            str = str + arr[i] + " ";
+        }
+        System.out.println(str);
+    }
+
+    public static String[] randomStringArr(int count, int length)
+    {
+        String[] arr = new String[count];
+        while (count > 0)
+        {
+            int i = 0;
+            String str = "";
+            while (i < length)
+            {
+                char c = (char) ((Math.random()*26)+97);
+                str = str + c;
+                i++;
+            }
+            count--;
+            arr[count] = str;
+        }
+        return arr;
+    }
+
+    public static String randomString(int length)
+    {
+        String str = "";
+        int i = 0;
+        while (i < length)
+        {
+            char c = (char) ((Math.random()*26)+97);
+            str = str + c;
+            i++;
+        }
+        return str;
+    }
+
     public static void swapString(String[] arr, int i, int j)
     {
         String temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
-    public static void swapDouble(double[] arr, int i, int j)
-    {
-        double temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
