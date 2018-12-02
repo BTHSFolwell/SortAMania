@@ -8,6 +8,7 @@ public class Team16SortCompetition extends SortCompetition
 
     public int challengeTwo(String[] arr, String query)
     {
+        SortAlgorithm.quickSort(arr, 0, arr.length - 1);
         return (SortAlgorithm.getIdx(arr, query));
     }
 
@@ -18,16 +19,19 @@ public class Team16SortCompetition extends SortCompetition
         return (SortAlgorithm.getMedian(arr));
     }
 
-    public int challengeFour(int[][] arr) {
+    public int challengeFour(int[][] arr)
+    {
         return 0;
     }
 
-    public int challengeFive(Comparable[] arr, Comparable query) {
+    public int challengeFive(Comparable[] arr, Comparable query)
+    {
         return 0;
     }
 
-    public String greeting() {
-        return null;
+    public String greeting()
+    {
+        return "Welcome to Team16's Sort-A-Mania!";
     }
 
 }
