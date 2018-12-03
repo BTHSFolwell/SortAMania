@@ -10,6 +10,24 @@ public class SortAlgorithm
         return arr;
     }
 
+    public static void printArr(int[] arr)
+
+    {
+
+        String str = "";
+
+        for (int i = 0; i < arr.length; i++)
+
+        {
+
+            str = str + arr[i] + " ";
+
+        }
+
+        System.out.println(str);
+
+    }
+
     public static int[][] randomIntsArrs(int count)
     {
         int[][] arr = new int[count][count];

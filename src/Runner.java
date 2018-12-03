@@ -4,7 +4,7 @@ public class Runner
     {
         SortCompetition team16 = new Team16SortCompetition();
         int[] randIntArr = SortAlgorithm.randomIntsArr(10000);
-        int[][] randIntArrs = SortAlgorithm.randomIntsArrs(5);
+        int[][] randIntArrs = SortAlgorithm.randomIntsArrs(1000);
         String[] randStringArr = SortAlgorithm.randomStringArr(10000, 5);
 
         //ChallengeOne
