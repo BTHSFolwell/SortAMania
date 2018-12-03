@@ -22,6 +22,31 @@ public class Utilities {
     public static void quickSortComparable(int[] arr, int left, int right){
 
     }
+    public static void quickSort1(Thingy[] arr, int left, int right){
+        if(left < right){
+            int pivot = partition1(arr,left,right);
+
+            quickSort1(arr,left,pivot-1);
+            quickSort1(arr,pivot + 1, right);
+        }
+    }
+    public static int partition1(Thingy[] arr, int left, int right){
+        Thingy pivot = arr[right];
+        int i = left -1;
+        for(int j = left; j < right; j++){
+            if(arr[j].compareTo(pivot) <= 0){
+                i++;
+                swap1(arr, i ,j);
+            }
+        }
+        swap1(arr, i+1, right);
+        return i+1;
+    }
+    public static void swap1(Thingy[] arr, int pos1, int pos2){
+        Thingy temp = arr[pos1];
+        arr[pos1] = arr[pos2];
+        arr[pos2] = temp;
+    }
     public static void quickSort(int[] arr, int left, int right){
         if(left < right){
             int pivot = partition(arr,left,right);
