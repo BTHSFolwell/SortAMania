@@ -1,5 +1,5 @@
 public class Thingy implements Comparable <Thingy>{
-    int val;
+    private int val;
     public Thingy(){
         val = Utilities.randInt(1, 10000);
     }

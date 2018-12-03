@@ -71,6 +71,7 @@ public class Team6SortCompetition extends SortCompetition {
 
     public int challengeFive(Comparable[] arr, Comparable query){
 
+        return -1;
     }
 
     public String greeting(){
