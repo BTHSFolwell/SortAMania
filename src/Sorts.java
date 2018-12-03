@@ -48,6 +48,18 @@ public class Sorts
         }
     }
 
+
+
+    public static void bubbleSort(String[] list3) {
+        for (int i = 0; i < list3.length; i++) {
+            for (int j = i + 1; j < list3.length; j++) {
+                if (list3[i].compareTo(list3[j]) > 0) {
+                    swapString(list3,i,j);
+                }
+            }
+        }
+    }
+
     public static void quickSort3(int[] arr, int left, int right)
     {
         if (left < right)
@@ -62,31 +74,37 @@ public class Sorts
         }
     }
 
-    public static int parition3(int[] arr, int left, int right)
-    {
-        int pivot1 = randomNumber(left, right/2);
-        int pivot2 = randomNumber(right/2 + 1, right);
-
-        if(arr[pivot2] < arr[pivot1])
-        {
-            int temp = pivot1;
-            pivot1 = pivot2;
-            pivot2 = temp;
-        }
-
-        int j = left -1;
-        int k = 
-
-        for(int andrew = left; andrew < right;  andrew ++)
-        {
-            if(arr[andrew] <)
-        }
 
 
-    }
+
 
     public static int randomNumber(int min, int max)
     {
         return (int)((max - min + 1) * Math.random() + min);
     }
+    public static void swapString(String[] arr, int i, int j) {
+        String temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static String [] randomStringArr(int num, int length)
+    {
+        String [] arr = new String[num];
+        while (num>0)
+        {
+            int i =0;
+            String s = "";
+            while (i<length)
+            {
+                char c = (char)((Math.random()*26)+97);
+                s=s+c;
+                i++;
+            }
+            num--;
+            arr[num]=s;
+        }
+        return arr;
+    }
+
 }
