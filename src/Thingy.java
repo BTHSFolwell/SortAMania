@@ -1,8 +1,9 @@
 public class Thingy implements Comparable <Thingy>{
     private int val;
     public Thingy(){
-        val = Utilities.randInt(1, 10000);
+        this.val = Utilities.randInt(1, 10000);
     }
+
     public int compareTo(Thingy t){
         return this.val - t.val;
     }
