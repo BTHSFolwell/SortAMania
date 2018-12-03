@@ -22,7 +22,7 @@ public abstract class SortCompetition implements Comparable <SortCompetition> {
 		totalTime += avg;
 	}
 	
-	public abstract int challengeOne(int[] arr);
+	public abstract double challengeOne(int[] arr);
 	
 	public abstract int challengeTwo(String[] arr, String query);
 	
