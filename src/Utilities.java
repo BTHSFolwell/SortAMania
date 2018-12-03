@@ -10,6 +10,12 @@ public class Utilities {
             }
         }
     }
+    public static int[][] gen2dInt(int count1, int count2){
+        int[][] arr = new int [count1][count2];
+    }
+    public static void quickSortComparable(int[] arr, int left, int right){
+
+    }
     public static void quickSort(int[] arr, int left, int right){
         if(left < right){
             int pivot = partition(arr,left,right);
@@ -104,6 +110,13 @@ public class Utilities {
         }
         for(int i = sorted; i < sorted + unsorted; i++){
             arr[i] = randInt(0,100000);
+        }
+        return arr;
+    }
+    public static Comparable[] genComparableArr(int count){
+        Comparable[] arr = new Comparable[count];
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = new Thingy();
         }
         return arr;
     }

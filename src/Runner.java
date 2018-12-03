@@ -23,6 +23,11 @@ public class Runner {
         duration = (endTime - startTime);
         //System.out.println(Arrays.toString(challenge3Arr));
         System.out.println("Challenge 3 time: " + duration + "ms.\n");
+        //Challenge 4
+        startTime = System.currentTimeMillis();
         System.out.println("Challenge 4 Median: " + sortComp.challengeFour(challenge4Arr));
+        endTime = System.currentTimeMillis();
+        duration = (endTime - startTime);
+
     }
 }

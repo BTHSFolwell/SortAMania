@@ -56,18 +56,17 @@ public class Team6SortCompetition extends SortCompetition {
         for (int i = 0; i < medians.length; i++) {
             Utilities.quickSortMedians(medians,arr, 0, medians.length - 1);
         }
-        for (int i = 0; i < medians.length; i++) {
-            if(medians.length % 2 == 1){
-                int idx = (int)Math.floor(medians.length / 2);
-                return medians[idx];
-            }else{
-                int idx = (int)Math.floor(medians.length /2);
-                int idx2 = idx - 1;
-                int median = (int)Math.floor((medians[idx] + medians[idx2]) / 2);
-                return median;
-            }
+        if(medians.length % 2 == 1){
+            int idx = (int)Math.floor(medians.length / 2);
+            return medians[idx];
+        }else if(medians.length % 2 == 0){
+            int idx = (int)Math.floor(medians.length /2);
+            int idx2 = idx - 1;
+            int median = (int)Math.floor((medians[idx] + medians[idx2]) / 2);
+            return median;
+        }else{
+            return 0;
         }
-        return 0;
     }
 
     public int challengeFive(Comparable[] arr, Comparable query){
