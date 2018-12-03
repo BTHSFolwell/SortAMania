@@ -14,6 +14,7 @@ public class Runner {
 
         System.out.println("Sorted");
         printIntArr(randIntArr);
+        System.out.println("The median is: " + randIntArr[4999]);
     }
 
     public static int[] printIntArr(int[] arr){

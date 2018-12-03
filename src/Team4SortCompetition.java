@@ -40,9 +40,26 @@ public class Team4SortCompetition extends SortCompetition{
         return arr;
     }
 
+    //Challenge Two
     @Override
     public int challengeTwo(String[] arr, String query) { //string sorting and searching
         return 0;
+    }
+
+    public static String[] randomStringArr(int num, int length){
+        String arr[] = new String[num];
+        while(num>0){
+            int i = 0;
+            String s = "";
+            while(i<length){
+                char c = (char)((Math.random()*26)+97);
+                s = s+c;
+                i++;
+            }
+            num--;
+            arr[num] = s;
+        }
+        return arr;
     }
 
     @Override
