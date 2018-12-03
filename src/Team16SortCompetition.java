@@ -21,7 +21,14 @@ public class Team16SortCompetition extends SortCompetition
 
     public int challengeFour(int[][] arr)
     {
-        return 0;
+        int[] medianArr = new int[arr[0]. length];
+        for (int i = 0; i < arr[0]. length; i++)
+        {
+            SortAlgorithm.quickSort(arr[i], 0, arr.length - 1);
+            medianArr[i] = (SortAlgorithm.getMedian(arr[i]));
+        }
+        SortAlgorithm.quickSort(medianArr, 0, arr.length - 1);
+        return (SortAlgorithm.getMedian(medianArr));
     }
 
     public int challengeFive(Comparable[] arr, Comparable query)
