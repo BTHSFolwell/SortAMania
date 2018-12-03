@@ -19,8 +19,7 @@ public abstract class SortCompetition implements Comparable <SortCompetition> {
 		return number; 
 	}
 	 
-	public void addTime(double avg)
-	{
+	public void addTime(double avg) {
 		totalTime += avg;
 	}
 	
