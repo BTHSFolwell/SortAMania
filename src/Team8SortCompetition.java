@@ -53,8 +53,36 @@ public class Team8SortCompetition extends SortCompetition {
             SortingAlgorithms.quickSort(arr[i]);
             medians[i] = getMiddle(arr[i]);
         }
-        SortingAlgorithms.quickSort(medians);
+        challengeFourQuickSort(medians, arr);
         return getMiddle(medians);
+    }
+
+    private void challengeFourQuickSort(int[] arr, int[][] arr2) {
+        challengeFourQuickSort(arr, arr2, 0, arr.length - 1);
+    }
+
+    private void challengeFourQuickSort(int[] arr, int[][] arr2, int left, int right) {
+        if (left < right) {
+            int pivot = challengeFourPartition(arr, arr2, left, right);
+
+            challengeFourQuickSort(arr, arr2, left, pivot - 1);
+            challengeFourQuickSort(arr, arr2,pivot + 1, right);
+        }
+    }
+
+    private static int challengeFourPartition(int[] arr, int[][] arr2, int left, int right) {
+        int pivot = arr[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                SortingAlgorithms.swap(arr, i, j);
+                SortingAlgorithms.swap(arr2, i, j);
+            }
+        }
+        SortingAlgorithms.swap(arr, i + 1, right);
+        SortingAlgorithms.swap(arr, i + 1, right);
+        return i + 1;
     }
 
     /**
@@ -64,8 +92,35 @@ public class Team8SortCompetition extends SortCompetition {
      * @param arr an array of 10,000 objects that implement the comparable interface.
      * @return the position of the object, or -1 if not found.
      */
-    public int challengeFive(Comparable[] arr, Comparable query) {
+    public int challengeFive(Thingy[] arr, Thingy query) {
+        challengeFiveQuickSort(arr);
         return -1;
+    }
+
+    private void challengeFiveQuickSort(Thingy[] arr) {
+        challengeFiveQuickSort(arr, 0, arr.length - 1);
+    }
+
+    static void challengeFiveQuickSort(Thingy[] arr, int left, int right) {
+        if (left < right) {
+            int pivot = challengeFivePartition(arr, left, right);
+
+            challengeFiveQuickSort(arr, left, pivot - 1);
+            challengeFiveQuickSort(arr, pivot + 1, right);
+        }
+    }
+
+    private static int challengeFivePartition(Thingy[] arr, int left, int right) {
+        Thingy pivot = arr[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (arr[j].compareTo(pivot) <= 0) {
+                i++;
+                SortingAlgorithms.swap(arr, i, j);
+            }
+        }
+        SortingAlgorithms.swap(arr, i + 1, right);
+        return i + 1;
     }
 
     public String greeting() {

@@ -6,20 +6,32 @@ class SortingAlgorithms {
      * @param i   the index of the value to be moved to index j.
      * @param j   the index of the value to be moved to index i.
      */
-    private static void swap(int[] arr, int i, int j) {
+    static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
-    private static void swap(double[] arr, int i, int j) {
+    static void swap(double[] arr, int i, int j) {
         double temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
-    private static void swap(String[] arr, int i, int j) {
+    static void swap(String[] arr, int i, int j) {
         String temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    static void swap(int[][] arr, int i, int j) {
+        int[] temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    static void swap(Thingy[] arr, int i, int j) {
+        Thingy temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
@@ -27,7 +39,7 @@ class SortingAlgorithms {
     /**
      * Prints out the values of an array, delimited by a space.
      *
-     * @param arr the array to print.
+     * @param arr    the array to print.
      * @param cutoff the max length of the output. (200 by default)
      */
     static void printArr(int[] arr, int cutoff) {
@@ -37,7 +49,7 @@ class SortingAlgorithms {
         if (cutoff > arr.length)
             System.out.println(sb.substring(1));
         else
-            System.out.println(sb.substring(1, cutoff));
+            System.out.println(sb.substring(1, cutoff) + "...");
     }
 
     static void printArr(int[] arr) {
@@ -51,7 +63,7 @@ class SortingAlgorithms {
         if (cutoff > arr.length)
             System.out.println(sb.substring(1));
         else
-            System.out.println(sb.substring(1, cutoff));
+            System.out.println(sb.substring(1, cutoff) + "...");
     }
 
     static void printArr(double[] arr) {
@@ -65,7 +77,7 @@ class SortingAlgorithms {
         if (cutoff > arr.length)
             System.out.println(sb.substring(1));
         else
-            System.out.println(sb.substring(1, cutoff));
+            System.out.println(sb.substring(1, cutoff) + "...");
     }
 
     static void printArr(String[] arr) {
@@ -75,14 +87,19 @@ class SortingAlgorithms {
     static void printArr(int[][] arr, int cutoff) {
         StringBuilder sb = new StringBuilder();
         for (int[] i : arr) {
+            StringBuilder sbi = new StringBuilder();
             for (int j : i)
-                sb.append(" ").append(j);
-            sb.append(" |");
+                sbi.append(j).append(" ");
+            if (cutoff > i.length)
+                sb.append(sbi);
+            else
+                sb.append(sbi.substring(0, cutoff) + "...");
+            sb.append("\n");
         }
-        if (cutoff > arr.length)
-            System.out.println(sb.substring(1));
+        if (sb.length() >= 600)
+            System.out.println(sb.substring(0, 600) + "\n...");
         else
-            System.out.println(sb.substring(1, cutoff));
+            System.out.println(sb);
     }
 
     static void printArr(int[][] arr) {
@@ -93,9 +110,9 @@ class SortingAlgorithms {
      * Creates an array of {@code len} random integers
      * in the range [{@code min}, {@code max}].
      *
-     * @param len the length of the array.
-     * @param min the minimum integer value. (0 by default)
-     * @param max the max integer value. ({@code len} by default)
+     * @param len    the length of the array.
+     * @param min    the minimum integer value. (0 by default)
+     * @param max    the max integer value. ({@code len} by default)
      * @param sorted the percent of the array to be sorted. (0.0 by default)
      * @return an array of randomly sorted integers.
      */
@@ -114,6 +131,14 @@ class SortingAlgorithms {
 
     static int[] getRandIntArr(int len, int min, int max) {
         return getRandIntArr(len, min, max, 0.0);
+    }
+
+    static int[] getRandIntArr(int len, int max, double sorted) {
+        return getRandIntArr(len, 0, max, sorted);
+    }
+
+    static int[] getRandIntArr(int len, int max) {
+        return getRandIntArr(len, 0, max, 0.0);
     }
 
     static int[] getRandIntArr(int len, double sorted) {
