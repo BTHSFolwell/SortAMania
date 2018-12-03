@@ -12,6 +12,7 @@ public class Runner {
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge One Time Taken: " + time * 0.001 + " Seconds");
         System.out.println("Median equals: " + median);
+        team16.addTime(time);
 
         printIntArr(randIntArr);
         // Challenge 2
@@ -22,6 +23,7 @@ public class Runner {
         System.out.println("Challenge Two Time Taken: " + time * 0.001 + " seconds.");
         System.out.println("The index of noooo is " + index);
         printStringArr(randStringArr);
+        team16.addTime(time);
 
         // Challenge 4
         int[][] rand2DIntArr = new int[1000][1000];
@@ -33,7 +35,19 @@ public class Runner {
         median = team16.challengeFour(rand2DIntArr);
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge Four Time Taken: " + time * 0.001 + " seconds.");
-        print2DArr(rand2DIntArr);
+        System.out.println("The median is " + median);
+        team16.addTime(time);
+
+        // Challenge 5
+        Comparable[] compArr = new Comparable[1000];
+        for (int i = 0; i < compArr.length; i ++) {
+            Team16SortCompetition thingie = new Team16SortCompetition();
+            thingie.addTime(1000);
+            compArr[i] = thingie;
+        }
+        Team16SortCompetition thingyCooler = new Team16SortCompetition();
+        Comparable query = thingyCooler;
+        team16.challengeFive(compArr, Comparable query);
     }
 
 
@@ -71,13 +85,12 @@ public class Runner {
         }
         System.out.println(output);
     }
-    public static String print2DArr(int[][] arr) {
+    public static void print2DArr(int[][] arr) {
         String output = "";
         for (int i = 0; i < arr.length; i ++) {
             for (int j = 0; j < arr[i].length; j ++) {
-                output += "(" + i + ", " + j + "): " + arr[i][j];
+                System.out.println(arr[i][j]);
             }
         }
-        return output;
     }
 }
