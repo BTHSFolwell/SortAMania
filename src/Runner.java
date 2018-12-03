@@ -56,8 +56,16 @@ public class Runner {
         printArr(randIntArr1);
 
         //Challenge Four
+        int[][] randMultiArr = randomMultiArr(5);
+        System.out.println("BEEEEEEEEEEEEEEP");
+        System.out.println(Arrays.deepToString(randMultiArr));
+        int median2 = team11.challengeFour(randMultiArr);
+        time = System.currentTimeMillis() - time;
+        System.out.println("Challenge Three Time Taken: " + time  + " Seconds");
+        System.out.println("Median equals: " + median2);
 
-
+        System.out.println("Sorted:");
+        printMultiArr(randMultiArr);
         //Challenge Five
     }
     public static int[] randomIntsArr(int count)
@@ -87,9 +95,26 @@ public class Runner {
         }
         return arr;
     }
+    public static int[][] randomMultiArr(int count)
+    {
+        int[][] arr = new int[count][count];
+        for(int i = 0;i < arr.length; i++)
+        {
+            for(int j = 0;j < arr[0].length; j++)
+            {
+                arr[i][j] = (int) (Math.random()*count);
+            }
+        }
+        return arr;
+    }
+
     public static void printArr(int[] arr)
     {
         System.out.println(Arrays.toString(arr));
+    }
+    public static void printMultiArr(int[][] arr)
+    {
+        System.out.println(Arrays.deepToString(arr));
     }
     public static void printStringArr(String[] arr)
     {

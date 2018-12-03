@@ -45,6 +45,7 @@ public class Team11SortCompetition extends SortCompetition {
 
     }
 
+
     public int challengeOne(int[] arr) {
         quickSort(arr,0,arr.length-1);
         int mid = 0;
@@ -63,7 +64,7 @@ public class Team11SortCompetition extends SortCompetition {
     public int challengeTwo(String[] arr, String query) {
         bubbleSort(arr);
         for(int i = 0;i<arr.length-1;i++) {
-            if(arr[i].compareTo(arr[i+1]) > 0) {
+            if(arr[i].equals(query)) {
                 return i;
             }
         }
@@ -86,7 +87,20 @@ public class Team11SortCompetition extends SortCompetition {
     }
 
     public int challengeFour(int[][] arr) {
-        return -1;
+        int median = 0;
+        int[] x = new int[arr.length];
+
+        for(int i=0; i < arr.length; i++) {
+            challengeOne(arr[i]);
+            for(int j = 0; j < arr[i].length; j++)
+            {
+                median = challengeOne(arr[j]);
+            }
+        }
+
+
+
+        return median;
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
