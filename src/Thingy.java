@@ -12,4 +12,11 @@ public class Thingy implements Comparable <Thingy>{
             return 0;
         }
     }
+    public Thingy[] randomThingArr(int num) {
+        Thingy[] things = new Thingy[num];
+        for (int i = 0; i < num; i++) {
+            things[i] = new Thingy();
+        }
+        return things;
+    }
 }
