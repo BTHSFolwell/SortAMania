@@ -6,7 +6,7 @@ public class Runner {
         SortCompetition sortComp = new Team6SortCompetition();
         int[] challenge1Arr = Utilities.genIntArr(10000);
         int[] challenge3Arr = Utilities.mostlySortedArr(75000,25000);
-        int[][] challenge4Arr = Utilities.
+        int[][] challenge4Arr = Utilities.gen2dInt(10, 10);
         //Challenge 1
         //System.out.println(Arrays.toString(challenge1Arr));
         long startTime = System.currentTimeMillis();
@@ -14,7 +14,7 @@ public class Runner {
         long endTime = System.currentTimeMillis();
         long duration = (endTime - startTime);
         //System.out.println(Arrays.toString(challenge1Arr));
-        System.out.println("Challenge 1 time: " + duration + "ms.\n");
+        /*System.out.println("Challenge 1 time: " + duration + "ms.\n");
         //Challenge 3
         //System.out.println(Arrays.toString(challenge3Arr));
         startTime = System.currentTimeMillis();
@@ -22,12 +22,14 @@ public class Runner {
         endTime = System.currentTimeMillis();
         duration = (endTime - startTime);
         //System.out.println(Arrays.toString(challenge3Arr));
-        System.out.println("Challenge 3 time: " + duration + "ms.\n");
+        System.out.println("Challenge 3 time: " + duration + "ms.\n");*/
         //Challenge 4
+        System.out.println(Arrays.deepToString(challenge4Arr));
         startTime = System.currentTimeMillis();
         System.out.println("Challenge 4 Median: " + sortComp.challengeFour(challenge4Arr));
         endTime = System.currentTimeMillis();
         duration = (endTime - startTime);
-
+        System.out.println("Challenge 4 time: " + duration + "ms.\n");
+        System.out.println(Arrays.deepToString(challenge4Arr));
     }
 }

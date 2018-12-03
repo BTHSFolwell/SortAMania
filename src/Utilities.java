@@ -12,6 +12,12 @@ public class Utilities {
     }
     public static int[][] gen2dInt(int count1, int count2){
         int[][] arr = new int [count1][count2];
+        for(int i = 0; i < count1; i++){
+            for(int j = 0; j < count2; j++){
+                arr[i][j] = randInt(0, 10000);
+            }
+        }
+        return arr;
     }
     public static void quickSortComparable(int[] arr, int left, int right){
 
@@ -19,34 +25,12 @@ public class Utilities {
     public static void quickSort(int[] arr, int left, int right){
         if(left < right){
             int pivot = partition(arr,left,right);
-
             quickSort(arr,left,pivot-1);
             quickSort(arr,pivot + 1, right);
         }
     }
-    public static void quickSortMedians(int[] arr, int[][] arr2, int left, int right){
-        if(left < right){
-            int pivot = partitionMedians(arr, arr2, left, right);
-            quickSortMedians(arr,arr2,left,pivot-1);
-            quickSortMedians(arr,arr2,pivot + 1, right);
-        }
-    }
-    public static int partitionMedians(int[] arr, int[][] arr2, int left, int right){
-        int pivot = arr[right];
-        int i = left -1;
-        for(int j = left; j < right; j++){
-            if(arr[j] <= pivot){
-                i++;
-                swap(arr, i ,j);
-                swapMedians(arr2, i, j, i, j);
-            }
-        }
-        swap(arr, i+1, right);
-        swapMedians(arr2, i+1, right, i+1, right);
-        return i+1;
-    }
     public static int partition(int[] arr, int left, int right){
-        int pivot = arr[right];
+        int pivot = arr[Utilities.randInt(left,right)];
         int i = left -1;
         for(int j = left; j < right; j++){
             if(arr[j] <= pivot){
@@ -62,10 +46,34 @@ public class Utilities {
         arr[pos1] = arr[pos2];
         arr[pos2] = temp;
     }
-    public static void swapMedians(int[][] array, int i1, int j1, int i2, int j2) {
-        int tempObject = array[i1][j1];
-        array[i1][j1] = array[i2][j2];
-        array[i2][j2] = tempObject;
+
+    public static void quickSortMedians(int[] medians, int[][] arr, int left, int right){
+        if(left < right){
+            int pivot = partitionMedians(medians, arr, left, right);
+            quickSortMedians(medians,arr,left,pivot-1);
+            quickSortMedians(medians,arr,pivot + 1, right);
+        }
+    }
+    public static int partitionMedians(int[] medians, int[][] arr, int left, int right){
+        int pivot = medians[Utilities.randInt(left,right)];
+        int i = left -1;
+        for(int j = left; j < right; j++){
+            if(medians[j] <= pivot){
+                i++;
+                swap(medians, i ,j);
+                swap2D(arr,i,j);
+            }
+        }
+        swap(medians, i+1, right);
+        swap2D(arr, i+1, right);
+        return i+1;
+    }
+    public static void swap2D(int[][] arr, int i, int j) {
+        for(int y = 0; y < arr.length; y++){
+            int temp = arr[i][y];
+            arr[i][y] = arr[i][j];
+            arr[i][j] = temp;
+        }
     }
     public static int[] genIntArr(int count){
         int[] arr = new int[count];
