@@ -5,23 +5,23 @@ public class Runner {
         int[] one = randomIntArr(10000);
         printIntArr(one);
         System.out.println("Unsorted");
-        long timer = System.nanoTime();
+        long timer = System.currentTimeMillis();
         System.out.println("Median: " + team2.challengeOne(one));
-        timer = System.nanoTime() - timer;
+        timer = System.currentTimeMillis() - timer;
         System.out.println("Sorted");
-        System.out.println(timer / 1000000000 + " seconds");
+        System.out.println(timer / 1000 + " seconds");
         printIntArr(one);
 
         System.out.println();
         System.out.println("Challenge 2");
         String[] two = randomStringArr(10000, 5);
         printStringArr(two);
-        timer = System.nanoTime();
+        timer = System.currentTimeMillis();
         System.out.println("Unsorted");
         System.out.println(team2.challengeTwo(two, "abcde"));
-        timer = System.nanoTime() - timer;
+        timer = System.currentTimeMillis() - timer;
         System.out.println("Sorted");
-        System.out.println(timer / 1000000000 + " seconds");
+        System.out.println(timer / 1000 + " seconds");
         printStringArr(two);
 
         System.out.println();
@@ -34,24 +34,24 @@ public class Runner {
         }
         printIntArr(three);
         System.out.println("Unsorted");
-        timer = System.nanoTime();
+        timer = System.currentTimeMillis();
         System.out.println("Median: " + team2.challengeThree(three));
-        timer = System.nanoTime() - timer;
+        timer = System.currentTimeMillis() - timer;
         System.out.println("Sorted");
-        System.out.println(timer / 1000000000 + " seconds");
+        System.out.println(timer / 1000 + " seconds");
         printIntArr(three);
 
         System.out.println();
         System.out.println("Challenge 4");
-        int[][] four = randomTwoDIntArr(5);
-        printTwoDArr(four);
+        int[][] four = randomTwoDIntArr(1000);
+        //printTwoDArr(four);
         System.out.println("Unsorted");
-        timer = System.nanoTime();
+        timer = System.currentTimeMillis();
         System.out.println("Median: " + team2.challengeFour(four));
-        timer = System.nanoTime() - timer;
+        timer = System.currentTimeMillis() - timer;
         System.out.println("Sorted");
-        System.out.println(timer / 1000000000 + " seconds");
-        printTwoDArr(four);
+        System.out.println(timer / 1000 + " seconds");
+        //printTwoDArr(four);
 
         System.out.println();
         System.out.println("Challenge 5");
