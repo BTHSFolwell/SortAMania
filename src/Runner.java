@@ -61,17 +61,14 @@ public class Runner {
         //Challenge Five
         Comparable[] randomComparableArr = randomComparableArr(10000);
         Team11SortCompetition.bubbleComparableSort(randomComparableArr);
-        System.out.println("\nUnsorted:");
-        printComparableArr(randomComparableArr);
 
-        int indexNumber1 = team11.challengeFive(randomComparableArr,"");
+        int indexNumber1 = team11.challengeFive(randomComparableArr,"5465465");
 
         time = System.currentTimeMillis();
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge Five Time Taken: " + time  + " Seconds");
 
-        System.out.println("\nSorted:\n");
-        printComparableArr(randomComparableArr);
+
         if (indexNumber1 >= 0)
             System.out.println("Index is found at: " + indexNumber);
         else
