@@ -12,6 +12,12 @@ public class Team11SortCompetition extends SortCompetition {
         arr[j] = temp;
     }
 
+    public static void swapComparable(Comparable[] arr, int i, int j) {
+        Comparable temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
     public static int partition(int[] arr, int left, int right) {
         int pivot = arr[right];
         int i = left - 1;
@@ -39,6 +45,16 @@ public class Team11SortCompetition extends SortCompetition {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j].compareTo(arr[j+1]) > 0) {
                     swapString(arr, j, j + 1);
+                }
+            }
+        }
+    }
+
+    public static void bubbleComparableSort(Comparable[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j].compareTo(arr[j+1]) > 0) {
+                    swapComparable(arr, j, j + 1);
                 }
             }
         }
@@ -89,7 +105,12 @@ public class Team11SortCompetition extends SortCompetition {
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
-        bubbleSort();
+        bubbleComparableSort(arr);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(query)) {
+                return i;
+            }
+        }
         return -1;
     }
 
