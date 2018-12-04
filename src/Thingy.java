@@ -8,4 +8,8 @@ public class Thingy implements Comparable<Thingy> {
     public int compareTo(Thingy t) {
         return this.num - t.num;
     }
+
+    public String toString() {
+        return Integer.toString(this.num);
+    }
 }

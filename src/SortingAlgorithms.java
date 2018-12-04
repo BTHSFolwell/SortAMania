@@ -106,6 +106,20 @@ class SortingAlgorithms {
         printArr(arr, 200);
     }
 
+    static void printArr(Thingy[] arr, int cutoff) {
+        StringBuilder sb = new StringBuilder();
+        for (Thingy t : arr)
+            sb.append(" ").append(t);
+        if (cutoff > arr.length)
+            System.out.println(sb.substring(1));
+        else
+            System.out.println(sb.substring(1, cutoff) + "...");
+    }
+
+    static void printArr(Thingy[] arr) {
+        printArr(arr, 200);
+    }
+
     /**
      * Creates an array of {@code len} random integers
      * in the range [{@code min}, {@code max}].
@@ -186,27 +200,31 @@ class SortingAlgorithms {
     /**
      * Creates an array of Strings with random lowercase letters.
      *
-     * @param num the length of the array.
-     * @param min the minimum possible length of each String. (3 by default)
-     * @param max the maximum possible length of each String. (5 by default)
-     * @return an array of {@code num} Strings,
+     * @param len the length of the array.
+     * @param min the minimum possible length of each String. (1 by default)
+     * @param max the maximum possible length of each String. (10 by default)
+     * @return an array of {@code len} Strings,
      * each of a length from {@code min} to {@code max},
      * composed of random lowercase letters.
      */
-    static String[] getRandStringArr(int num, int min, int max) {
-        String[] arr = new String[num];
-        for (int i = 0; i < num; i++) {
+    static String[] getRandStringArr(int len, int min, int max) {
+        String[] arr = new String[len];
+        for (int i = 0; i < len; i++) {
             StringBuilder sb = new StringBuilder();
-            int len = (int) (Math.random() * max + 1 - min) + min;
-            for (int j = 0; j < len; j++)
+            int strLen = (int) (Math.random() * max + 1 - min) + min;
+            for (int j = 0; j < strLen; j++)
                 sb.append(Character.toString((char) ((Math.random() * 26) + 97)));
             arr[i] = sb.toString();
         }
         return arr;
     }
 
-    static String[] getRandStringArr(int num) {
-        return getRandStringArr(num, 3, 15);
+    static String[] getRandStringArr(int len) {
+        return getRandStringArr(len, 1, 10);
+    }
+
+    static String[] getRandStringArr(int len, int strLen) {
+        return getRandStringArr(len, strLen, strLen);
     }
 
     /**
@@ -216,20 +234,16 @@ class SortingAlgorithms {
      * @param list1 The array to sort.
      */
     static void bubbleSort(String[] list1) {
-        int swaps = 0, comparisons = 0;
         boolean swap = true;
         for (int i = 0; swap; i++) {
             swap = false;
             for (int j = 0; j < list1.length - i - 1; j++) {
-                comparisons++;
                 if (list1[j].compareTo(list1[j + 1]) > 0) {
                     swap(list1, j, j + 1);
                     swap = true;
-                    swaps++;
                 }
             }
         }
-        System.out.print("(" + swaps + " swaps, " + comparisons + " comparisons) ");
     }
 
     /**
@@ -239,19 +253,14 @@ class SortingAlgorithms {
      * @param list1 The array to sort.
      */
     static void selectionSort(double[] list1) {
-        int swaps = 0, comparisons = 0;
         int minIdx = 0;
         for (int i = 0; i < list1.length - 1; i++) {
             for (int j = i; j < list1.length; j++) {
-                comparisons++;
                 if (list1[j] < list1[minIdx])
                     minIdx = j;
             }
             swap(list1, minIdx, i);
-            swaps++;
-
         }
-        System.out.print("(" + swaps + " swaps, " + comparisons + " comparisons) ");
     }
 
     /**
@@ -262,16 +271,10 @@ class SortingAlgorithms {
      * @param list1 The array to sort.
      */
     static void insertionSort(int[] list1) {
-        int swaps = 0, comparisons = 0;
         for (int i = 1; i < list1.length; i++) {
-            comparisons++;
-            for (int j = i - 1; j > 0 && list1[j] < list1[j - 1]; j--) {
-                comparisons++;
-                swaps++;
+            for (int j = i - 1; j > 0 && list1[j] < list1[j - 1]; j--)
                 swap(list1, j, j - 1);
-            }
         }
-        System.out.print("(" + swaps + " swaps, " + comparisons + " comparisons) ");
     }
 
     /**
@@ -305,8 +308,8 @@ class SortingAlgorithms {
      */
     private static void mergeSortHelper(int[] elements,
                                         int from, int to, int[] temp) {
-        if (from < to) { // Checks if array length is at least 1
-            int middle = (from + to) / 2; // Splits array in half
+        if (from < to) {
+            int middle = (from + to) / 2;
             mergeSortHelper(elements, from, middle, temp);
             mergeSortHelper(elements, middle + 1, to, temp);
             merge(elements, from, middle, to, temp);
@@ -338,8 +341,8 @@ class SortingAlgorithms {
         int i = from;
         int j = mid + 1;
         int k = from;
-        while (i <= mid && j <= to) { // While both halves still have elements to sort
-            if (elements[i] < elements[j]) { // Puts the smaller number in temp first
+        while (i <= mid && j <= to) {
+            if (elements[i] < elements[j]) {
                 temp[k] = elements[i];
                 i++;
             } else {
@@ -348,17 +351,17 @@ class SortingAlgorithms {
             }
             k++;
         }
-        while (i <= mid) { // Puts the rest of the first half of array at end
+        while (i <= mid) {
             temp[k] = elements[i];
             i++;
             k++;
         }
-        while (j <= to) { // Puts the rest of the second half of array at end
+        while (j <= to) {
             temp[k] = elements[j];
             j++;
             k++;
         }
-        for (k = from; k <= to; k++) { // Overwrites the original array
+        for (k = from; k <= to; k++) {
             elements[k] = temp[k];
         }
     }

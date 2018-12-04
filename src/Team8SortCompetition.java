@@ -94,6 +94,10 @@ public class Team8SortCompetition extends SortCompetition {
      */
     public int challengeFive(Thingy[] arr, Thingy query) {
         challengeFiveQuickSort(arr);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(query))
+                return i;
+        }
         return -1;
     }
 

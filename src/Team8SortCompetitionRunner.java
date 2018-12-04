@@ -1,16 +1,17 @@
 public class Team8SortCompetitionRunner {
     public static void main(String[] args) {
         SortCompetition team8 = new Team8SortCompetition();
-        int[] randIntArr = SortingAlgorithms.getRandIntArr(25);
-        String[] randStringArr = SortingAlgorithms.getRandStringArr(10000, 0, 5);
-        String query = randStringArr[(int) (Math.random() * randStringArr.length)];
-        int[] mostlySortedIntArr = SortingAlgorithms.getRandIntArr(10000, .80);
+        int[] randIntArr = SortingAlgorithms.getRandIntArr(10000);
+        String[] randStringArr = SortingAlgorithms.getRandStringArr(10000, 5);
+        String stringQuery = randStringArr[(int) (Math.random() * randStringArr.length)];
+        int[] mostlySortedIntArr = SortingAlgorithms.getRandIntArr(100000, .80);
         int[][] multiDimensionalIntArr = new int[1000][1000];
         for (int i = 0; i < 1000; i++)
             multiDimensionalIntArr[i] = SortingAlgorithms.getRandIntArr(1000, 10000);
-        Thingy[] thingyArr = new Thingy[10000];
+        Thingy[] randThingyArr = new Thingy[10000];
         for (int i = 0; i < 10000; i++)
-            thingyArr[i] = new Thingy();
+            randThingyArr[i] = new Thingy();
+        Thingy thingyQuery = randThingyArr[(int) (Math.random() * randThingyArr.length)];
 
         System.out.println("Unsorted");
         SortingAlgorithms.printArr(randIntArr);
@@ -28,10 +29,10 @@ public class Team8SortCompetitionRunner {
         SortingAlgorithms.printArr(randStringArr);
 
         time = System.currentTimeMillis();
-        int index = team8.challengeTwo(randStringArr, query);
+        int index = team8.challengeTwo(randStringArr, stringQuery);
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge Two Time Taken: " + time * 0.001 + " Seconds");
-        System.out.println("Index of \"" + query + "\" equals: " + index);
+        System.out.println("Index of \"" + stringQuery + "\" equals: " + index);
 
         System.out.println("Sorted");
         SortingAlgorithms.printArr(randStringArr);
@@ -59,5 +60,17 @@ public class Team8SortCompetitionRunner {
 
         System.out.println("Sorted");
         SortingAlgorithms.printArr(multiDimensionalIntArr);
+
+        System.out.println("\nUnsorted");
+        SortingAlgorithms.printArr(randThingyArr);
+
+        time = System.currentTimeMillis();
+        index = team8.challengeFive(randThingyArr, thingyQuery);
+        time = System.currentTimeMillis() - time;
+        System.out.println("Challenge Five Time Taken: " + time * 0.001 + " Seconds");
+        System.out.println("Index of \"" + thingyQuery + "\" equals: " + index);
+
+        System.out.println("Sorted");
+        SortingAlgorithms.printArr(randThingyArr);
     }
 }
