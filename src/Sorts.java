@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Sorts
 {
     public static int[] buildArray(int size)
@@ -21,18 +23,18 @@ public class Sorts
     public static int partition(int[] arr, int left, int right)
     {
         int pivot = arr[right];
-        int i = left - 1;
+        int i = left-1;
 
-        for(int j = left; j < right; j++)
+        for (int j = left; j <right;j++)
         {
-            if (arr[j] <= pivot)
+            if (arr[j]<=pivot)
             {
                 i++;
-                swap(arr, i, j);
+                swap(arr,i,j);
             }
         }
-        swap(arr,i+1, right);
-        return i + 1;
+        swap(arr,i+1,right);
+        return i+1;
     }
 
     public static void quickSort(int[] arr, int left, int right)
@@ -107,4 +109,31 @@ public class Sorts
         return arr;
     }
 
+
+      //  System.out.println(Arrays.deepToString(arr));
+
+
+    public static void arrPrint2d(int [][] x) //prints the board
+    {
+        for (int[] i : x)
+        {
+            for (int j : i)
+            {
+                System.out.print(j + "  ");
+
+            }
+            System.out.println();
+        }
+    }
+
+    public static int[][] Arr2d(int width, int height) {
+        int[][] arr = new int[height][width];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = (int) (Math.random() * 10000);
+            }
+
+        }
+        return arr;
+    }
 }
