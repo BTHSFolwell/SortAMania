@@ -136,4 +136,22 @@ public class Sorts
         }
         return arr;
     }
+
+    public static Thing[] randomThingArr(int num)
+    {
+        Thing[] things = new Thing[num];
+        for (int i=0;i<num;i++)
+        {
+            things[i] = new Thing();
+        }
+        return things;
+    }
+
+
+   /* public double returnNumber()
+    {
+        return this.totalTime;
+    }
+    */
+
 }

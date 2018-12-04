@@ -11,6 +11,7 @@ public class Runner {
     int[] randIntArr3 = Sorts.buildArray(10);
     String[] randomStringArr = Sorts.randomStringArr(10,10);
     int[][] randIntArr4 = Sorts.Arr2d(10,10);
+    Comparable[]  randComparable = Sorts.randomThingArr(10);
 
 
         System.out.println("Unsorted");

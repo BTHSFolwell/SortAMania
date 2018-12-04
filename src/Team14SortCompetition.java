@@ -56,7 +56,7 @@ public class Team14SortCompetition extends SortCompetition {
     }
     @Override
     public int challengeFive(Comparable[] arr, Comparable query) {
-        return 0;
+        
     }
 
     @Override
