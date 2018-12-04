@@ -96,8 +96,8 @@ class SortingAlgorithms {
                 sb.append(sbi.substring(0, cutoff) + "...");
             sb.append("\n");
         }
-        if (sb.length() >= 600)
-            System.out.println(sb.substring(0, 600) + "\n...");
+        if (sb.length() >= cutoff * 3)
+            System.out.println(sb.substring(0, cutoff * 3) + "\n...");
         else
             System.out.println(sb);
     }

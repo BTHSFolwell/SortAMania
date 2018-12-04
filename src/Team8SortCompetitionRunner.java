@@ -1,6 +1,7 @@
 public class Team8SortCompetitionRunner {
     public static void main(String[] args) {
         SortCompetition team8 = new Team8SortCompetition();
+        System.out.println(team8.greeting());
         int[] randIntArr = SortingAlgorithms.getRandIntArr(10000);
         String[] randStringArr = SortingAlgorithms.getRandStringArr(10000, 5);
         String stringQuery = randStringArr[(int) (Math.random() * randStringArr.length)];
