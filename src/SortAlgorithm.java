@@ -59,6 +59,17 @@ public class SortAlgorithm
         return str;
     }
 
+    //Creates a random object array
+    public static Object[] ThingyArr(int length)
+    {
+        Thingy[] randThingyArr = new Thingy[length];
+        for (int i = 0; i < length; i++)
+        {
+            randThingyArr[i] = new Thingy();
+        }
+        return randThingyArr;
+    }
+
     //Swaps two strings
     public static void swap(String[] arr, int i, int j)
     {
@@ -177,7 +188,18 @@ public class SortAlgorithm
     }
 
     //Returns the index of a string in a string array
-    public static int getIdx(String[] arr, String query)
+    public static int getIdx(Comparable[] arr, Comparable query)
+    {
+        for (int i = 0; i < arr.length - 1; i++)
+        {
+            if (arr[i].equals(query))
+                return i;
+        }
+        return -1;
+    }
+
+    //Returns the index of an object in a string array
+    public static int getIdx(Thingy[] arr, String query)
     {
         for (int i = 0; i < arr.length - 1; i++)
         {

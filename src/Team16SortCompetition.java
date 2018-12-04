@@ -34,12 +34,7 @@ public class Team16SortCompetition extends SortCompetition
     public int challengeFive(Comparable[] arr, Comparable query)
     {
         SortAlgorithm.quickSort((Thingy[]) arr, 0, arr.length - 1);
-        for (int i = 0; i < arr.length; i++)
-        {
-            if (arr[i].compareTo(query) == 0)
-                return i;
-        }
-        return -1;
+        return (SortAlgorithm.getIdx(arr, query));
     }
 
     public String greeting()
