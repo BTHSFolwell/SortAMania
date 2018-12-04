@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Team2SortCompetition extends SortCompetition {
     public double challengeOne(int[] arr){
         quickSort(arr,0,arr.length-1);
@@ -28,40 +26,24 @@ public class Team2SortCompetition extends SortCompetition {
             quickSort(arr[i], 0, arr[i].length - 1);
         }
         medianSort(arr, 0, arr.length-1);
-        return getMedian(arr);
+        int[] medianArr = new int[arr.length];
+        for (int i = 0; i < arr.length; i++)
+        {
+            medianArr[i] = getMedian(arr[i]);
+        }
+        return getMedian(medianArr);
     }
 
     public int challengeFive(Comparable[] arr, Comparable query){
+
         return 0;
     }
     public String greeting(){
-        return null;
+        return "Hello!";
     }
 
-    public static int getMedian(int[][] arr)
-    {
-        if ((int)(arr.length / 2) + 1 % 2 == 0)
-        {
-            return (getMedian(arr[arr.length/2-1])+getMedian(arr[arr.length/2])/2);
-        }
-        else
-        {
-            return getMedian(arr[arr.length/2]);
-        }
-
-    }
-
-    public static int getMedian(int[] arr)
-    {
-        if ((int)(arr.length / 2) + 1 % 2 == 0)
-        {
-            return (arr[arr.length/2-1]+arr[arr.length/2])/2;
-        }
-        else
-        {
-            return arr[arr.length/2];
-        }
-
+    public static int getMedian(int[] arr){
+        return (arr[arr.length/2-1+(arr.length%2)]+arr[arr.length/2])/2;
     }
 
     public static void medianSort(int[][] arr, int left, int right)

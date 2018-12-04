@@ -43,13 +43,15 @@ public class Runner {
 
         System.out.println();
         System.out.println("Challenge 4");
-        int[][] four = randomTwoDIntArr(10000);
+        int[][] four = randomTwoDIntArr(5);
+        printTwoDArr(four);
         System.out.println("Unsorted");
         timer = System.nanoTime();
         System.out.println("Median: " + team2.challengeFour(four));
         timer = System.nanoTime() - timer;
         System.out.println("Sorted");
         System.out.println(timer / 1000000000 + " seconds");
+        printTwoDArr(four);
 
         System.out.println();
         System.out.println("Challenge 5");
@@ -110,5 +112,18 @@ public class Runner {
             }
         }
         return arr;
+    }
+
+    public static void printTwoDArr(int[][] arr)
+    {
+        for (int i = 0; i < arr.length; i++) {
+            String string = "";
+            for (int j = 0; j < arr[i].length; j++)
+            {
+                string = string + arr[i][j] + " ";
+            }
+            System.out.println(string);
+        }
+
     }
 }
