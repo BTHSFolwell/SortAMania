@@ -1,5 +1,8 @@
 public class Team16SortCompetition extends SortCompetition {
 
+    public double returnNumber() {
+        return this.totalTime;
+    }
     public int challengeOne(int[] arr) {
         /*  challengeOne: Standard sort and process
             Data Set - an array of 10,000 random integers between 0-10000
@@ -79,8 +82,43 @@ public class Team16SortCompetition extends SortCompetition {
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
-        return 0;
+        quickSortComp(arr, 0, arr.length - 1);
+        boolean x = false; int lwr = 0; int upr = arr.length - 1; int mid = arr.length/2 - 1;
+        while (!x) {
+            if (query.compareTo(arr[mid]) > 0) {
+                lwr = mid; mid = ((upr - lwr) / 2) + lwr;
+            }
+            else if (query.compareTo(arr[mid]) < 0) {
+                upr = mid; mid = ((upr - lwr) / 2) + lwr;
+            }
+            else return mid;
+            if (upr <= lwr || lwr == mid || upr == mid) {
+                x = true;
+            }
+        }
+        return -1;
     }
+
+        private void quickSortComp(Comparable[] arr, int x, int y) {
+            if (x < y) {
+                int z = partComp(arr, x, y);
+                quickSortComp(arr, x, z - 1);
+                quickSortComp(arr, z + 1, y);
+            }
+        }
+        private int partComp(Comparable[] arr, int x, int y) {
+            Comparable z = arr[y];
+            int i = x - 1;
+
+            for (int j = x; j < y; j ++) {
+                if (arr[j].compareTo(z) >= 0) {
+                    i ++;
+                    Comparable k = arr[i]; arr[i] = arr[j]; arr[j] = k;
+                }
+            }
+            Comparable l = arr[i + 1]; arr[i + 1] = arr[y]; arr[y] = l;
+            return i + 1;
+        }
 
     public String greeting() {
         return "sup";

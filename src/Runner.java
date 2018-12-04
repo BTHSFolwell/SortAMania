@@ -30,7 +30,7 @@ public class Runner {
         for (int i = 0; i < rand2DIntArr.length; i ++) {
             rand2DIntArr[i] = randomIntsArr(1000);
         }
-        print2DArr(rand2DIntArr);
+        // print2DArr(rand2DIntArr);
         time = System.currentTimeMillis();
         median = team16.challengeFour(rand2DIntArr);
         time = System.currentTimeMillis() - time;
@@ -42,12 +42,13 @@ public class Runner {
         Comparable[] compArr = new Comparable[1000];
         for (int i = 0; i < compArr.length; i ++) {
             Team16SortCompetition thingie = new Team16SortCompetition();
-            thingie.addTime(1000);
+            thingie.addTime(Math.random() * 1000);
             compArr[i] = thingie;
         }
         Team16SortCompetition thingyCooler = new Team16SortCompetition();
-        Comparable query = thingyCooler;
-        team16.challengeFive(compArr, Comparable query);
+        thingyCooler.addTime(500);
+
+        team16.challengeFive(compArr, thingyCooler);
     }
 
 
@@ -92,5 +93,12 @@ public class Runner {
                 System.out.println(arr[i][j]);
             }
         }
+    }
+    public static void printComparable(Comparable[] arr) {
+        String output = "";
+        for (int i = 0; i < arr.length; i ++) {
+            output += arr[i].returnNumber() + " ";
+        }
+        System.out.println(output);
     }
 }
