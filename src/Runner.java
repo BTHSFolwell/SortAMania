@@ -9,7 +9,7 @@ public class Runner {
         //Challenge One
         int[] randIntArr = randomIntsArr(10000);
 
-        System.out.println("Unsorted");
+        System.out.println("Unsorted:\n");
         printArr(randIntArr);
 
         long time = System.currentTimeMillis();
@@ -18,13 +18,13 @@ public class Runner {
         System.out.println("Challenge One Time Taken: " + time  + " Seconds");
         System.out.println("Median equals: " + median);
 
-        System.out.println("Sorted");
+        System.out.println("Sorted:\n");
         printArr(randIntArr);
 
         //Challenge Two
         String[] randStringArr = randomStringArr(10000,5);
 
-        System.out.println("\nUnsorted:");
+        System.out.println("\nUnsorted:\n");
         printStringArr(randStringArr);
         int indexNumber = team11.challengeTwo(randStringArr,"fasad");
 
@@ -36,7 +36,7 @@ public class Runner {
         else
             System.out.println("Index not found");
 
-        System.out.println("Sorted");
+        System.out.println("Sorted:\n");
         printStringArr(randStringArr);
 
 
@@ -60,24 +60,21 @@ public class Runner {
 
         //Challenge Five
     }
-    public static int[] randomIntsArr(int count)
-    {
+
+    public static int[] randomIntsArr(int count) {
         int[] arr = new int[count];
-        for(int i = 0; i < arr.length; i++)
-        {
+        for(int i = 0; i < arr.length; i++) {
             arr[i] = (int)(Math.random()*10000);
         }
         return arr;
     }
-    public static String[] randomStringArr(int num, int length)
-    {
+
+    public static String[] randomStringArr(int num, int length) {
         String [] arr = new String [num];
-        while(num>0)
-        {
+        while(num>0) {
             int i =0;
             String s = "";
-            while(i<length)
-            {
+            while(i<length) {
                 char c = (char)((Math.random()*26)+97);
                 s = s + c;
                 i++;
@@ -87,13 +84,10 @@ public class Runner {
         }
         return arr;
     }
-    public static void printArr(int[] arr)
-    {
+    public static void printArr(int[] arr) {
         System.out.println(Arrays.toString(arr));
     }
-    public static void printStringArr(String[] arr)
-    {
+    public static void printStringArr(String[] arr) {
         System.out.println(Arrays.toString(arr));
     }
-
 }

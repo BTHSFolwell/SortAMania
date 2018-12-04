@@ -26,10 +26,10 @@ public class Team11SortCompetition extends SortCompetition {
     }
 
     public static void quickSort(int[] arr,int left, int right) {
-        if(left<right) {
+        if (left < right) {
             int pivot = partition(arr,left,right);
 
-            quickSort(arr,left,pivot - 1 );
+            quickSort(arr, left,pivot - 1 );
             quickSort(arr,pivot + 1, right);
         }
     }
@@ -42,7 +42,6 @@ public class Team11SortCompetition extends SortCompetition {
                 }
             }
         }
-
     }
 
     public int challengeOne(int[] arr) {
@@ -90,12 +89,11 @@ public class Team11SortCompetition extends SortCompetition {
     }
 
     public int challengeFive(Comparable[] arr, Comparable query) {
+        bubbleSort();
         return -1;
     }
 
     public String greeting() {
-        return "hi";
+        return "Hello!";
     }
-
-
 }
