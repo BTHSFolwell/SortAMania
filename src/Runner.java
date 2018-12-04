@@ -1,8 +1,10 @@
+//Kyle and James (Team 16) Period 3 & 4
 public class Runner
 {
     public static void main(String[] args)
     {
         SortCompetition team16 = new Team16SortCompetition();
+        System.out.println(team16.greeting());
         int[] randIntArr = SortAlgorithm.randomIntsArr(10000);
         int[][] randIntArrs = SortAlgorithm.randomIntsArrs(1000);
         String[] randStringArr = SortAlgorithm.randomStringArr(10000, 5);
@@ -35,5 +37,7 @@ public class Runner
         time4 = System.currentTimeMillis() - time4;
         System.out.println("Challenge Four Time Taken: " + time4 * 0.001 + " Seconds");
         System.out.println("Median equals: " + median4);
+
+        //ChallengeFive
     }
 }

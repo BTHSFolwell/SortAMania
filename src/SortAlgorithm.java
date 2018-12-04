@@ -1,5 +1,6 @@
 public class SortAlgorithm
 {
+    //Creates a random number array(1D)
     public static int[] randomIntsArr(int count)
     {
         int[] arr = new int[count];
@@ -10,24 +11,7 @@ public class SortAlgorithm
         return arr;
     }
 
-    public static void printArr(int[] arr)
-
-    {
-
-        String str = "";
-
-        for (int i = 0; i < arr.length; i++)
-
-        {
-
-            str = str + arr[i] + " ";
-
-        }
-
-        System.out.println(str);
-
-    }
-
+    //Creates a random number array(2D)
     public static int[][] randomIntsArrs(int count)
     {
         int[][] arr = new int[count][count];
@@ -41,6 +25,7 @@ public class SortAlgorithm
         return arr;
     }
 
+    //Creates a random string array(1D)
     public static String[] randomStringArr(int count, int length)
     {
         String[] arr = new String[count];
@@ -60,6 +45,7 @@ public class SortAlgorithm
         return arr;
     }
 
+    //Creates a random string
     public static String randomString(int length)
     {
         String str = "";
@@ -73,20 +59,31 @@ public class SortAlgorithm
         return str;
     }
 
-    public static void swapString(String[] arr, int i, int j)
+    //Swaps two strings
+    public static void swap(String[] arr, int i, int j)
     {
         String temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
-    public static void swapInt(int[] arr, int i, int j)
+    //Swaps two numbers
+    public static void swap(int[] arr, int i, int j)
     {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
+    //Swaps two objects
+    public static void swap(Thingy[] arr, int i, int j)
+    {
+        Thingy temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    //Sort method for numbers
     public static void quickSort(int[] arr, int left, int right)
     {
         if (left < right)
@@ -96,7 +93,6 @@ public class SortAlgorithm
             quickSort(arr, pivot + 1, right);
         }
     }
-
     public static int partition(int[] arr, int left, int right)
     {
         int pivot = arr[right];
@@ -106,13 +102,14 @@ public class SortAlgorithm
             if (arr[j] <= pivot)
             {
                 i++;
-                swapInt(arr, i, j);
+                swap(arr, i, j);
             }
         }
-        swapInt(arr, i + 1, right);
+        swap(arr, i + 1, right);
         return (i + 1);
     }
 
+    //Sort method for strings
     public static void quickSort(String[] arr, int left, int right)
     {
         if (left < right)
@@ -122,7 +119,6 @@ public class SortAlgorithm
             quickSort(arr, pivot + 1, right);
         }
     }
-
     public static int partition(String[] arr, int left, int right)
     {
         String pivot = arr[right];
@@ -132,13 +128,40 @@ public class SortAlgorithm
             if (arr[j].compareTo(pivot) <= 0)
             {
                 i++;
-                swapString(arr, i, j);
+                swap(arr, i, j);
             }
         }
-        swapString(arr, i + 1, right);
+        swap(arr, i + 1, right);
         return (i + 1);
     }
 
+    //Sort method for objects
+    public static void quickSort(Thingy[] arr, int left, int right)
+    {
+        if (left < right)
+        {
+            int pivot = partition(arr, left, right);
+            quickSort(arr, left, pivot - 1);
+            quickSort(arr, pivot + 1, right);
+        }
+    }
+    public static int partition(Thingy[] arr, int left, int right)
+    {
+        Thingy pivot = arr[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++)
+        {
+            if (arr[j].compareTo(pivot) <= 0)
+            {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, right);
+        return (i + 1);
+    }
+
+    //Returns the median of a number array
     public static int getMedian(int[] arr)
     {
         if (arr.length % 2 == 0)
@@ -153,6 +176,7 @@ public class SortAlgorithm
         }
     }
 
+    //Returns the index of a string in a string array
     public static int getIdx(String[] arr, String query)
     {
         for (int i = 0; i < arr.length - 1; i++)
