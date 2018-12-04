@@ -68,8 +68,8 @@ public class Team6SortCompetition extends SortCompetition {
         }
     }
 
-    public int challengeFive(Comparable[] arr, Comparable query){
-        Utilities.quickSort1((Thingy[]) arr, 0, arr.length-1);
+    public int challengeFive(Thingy[] arr, Thingy query){
+        Utilities.quickSort1(arr, 0, arr.length-1);
         for (int i = 0; i < arr.length; i++) {
             if (arr[i].compareTo(query) == 0)
                 return i;

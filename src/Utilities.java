@@ -19,9 +19,6 @@ public class Utilities {
         }
         return arr;
     }
-    public static void quickSortComparable(int[] arr, int left, int right){
-
-    }
     public static void quickSort1(Thingy[] arr, int left, int right){
         if(left < right){
             int pivot = partition1(arr,left,right);
@@ -146,8 +143,8 @@ public class Utilities {
         }
         return arr;
     }
-    public static Comparable[] genComparableArr(int count){
-        Comparable[] arr = new Comparable[count];
+    public static Thingy[] genComparableArr(int count){
+        Thingy[] arr = new Thingy[count];
         for(int i = 0; i < arr.length; i++) {
             arr[i] = new Thingy();
         }
