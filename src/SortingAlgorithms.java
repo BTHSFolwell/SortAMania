@@ -169,7 +169,7 @@ class SortingAlgorithms {
      * @param len the length of the array.
      * @return an array of randomly sorted integers with no repeat values.
      */
-    static int[] randIntArr(int len) {
+    static int[] scrambledIntArr(int len) {
         int[] arr = new int[len];
         for (int i = 1; i <= len; i++) {
             int randIdx = (int) (Math.random() * len);

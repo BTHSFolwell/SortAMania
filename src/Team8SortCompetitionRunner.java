@@ -1,5 +1,7 @@
 public class Team8SortCompetitionRunner {
     public static void main(String[] args) {
+        long time;
+        int median;
         SortCompetition team8 = new Team8SortCompetition();
         System.out.println(team8.greeting());
         int[] randIntArr = SortingAlgorithms.getRandIntArr(10000);
@@ -17,8 +19,8 @@ public class Team8SortCompetitionRunner {
         System.out.println("Unsorted");
         SortingAlgorithms.printArr(randIntArr);
 
-        long time = System.currentTimeMillis();
-        int median = team8.challengeOne(randIntArr);
+        time = System.currentTimeMillis();
+        median = team8.challengeOne(randIntArr);
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge One Time Taken: " + time * 0.001 + " Seconds");
         System.out.println("Median equals: " + median);

@@ -42,7 +42,7 @@ public abstract class SortCompetition implements Comparable<SortCompetition> {
      * challengeThree: Mostly Sorted Big Array
      * Task: Sort the list and return the median.
      *
-     * @param arr a mostly sorted array of 100,000 integers (>75% of elements are in the correct order).
+     * @param arr a mostly sorted array of 100,000 integers (greater than 75% of elements are in the correct order).
      * @return the median of the array.
      */
     public abstract int challengeThree(int[] arr);
@@ -61,6 +61,7 @@ public abstract class SortCompetition implements Comparable<SortCompetition> {
      * Task: Sort the array by the compareTo method, and determine if it contains the element given.
      *
      * @param arr an array of 10,000 objects that implement the comparable interface.
+     * @param query the element to search for.
      * @return the position of the object, or -1 if not found.
      */
     public abstract int challengeFive(Thingy[] arr, Thingy query);

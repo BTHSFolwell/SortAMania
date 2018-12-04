@@ -1,10 +1,8 @@
 public class Team8SortCompetition extends SortCompetition {
-
     public int challengeOne(int[] arr) {
         SortingAlgorithms.quickSort(arr);
         return getMiddle(arr);
     }
-
 
     public int challengeTwo(String[] arr, String query) {
         SortingAlgorithms.quickSort(arr);
@@ -15,12 +13,10 @@ public class Team8SortCompetition extends SortCompetition {
         return -1;
     }
 
-
     public int challengeThree(int[] arr) {
         SortingAlgorithms.quickSort(arr);
         return getMiddle(arr);
     }
-
 
     public int challengeFour(int[][] arr) {
         int[] medians = new int[arr.length];
@@ -32,6 +28,13 @@ public class Team8SortCompetition extends SortCompetition {
         return getMiddle(medians);
     }
 
+    /**
+     * A modified version of quick sort that sorts arrays in parallel,
+     * the {@code arr2} based on the swaps of the {@code arr}.
+     *
+     * @param arr  the arr which determines the swaps.
+     * @param arr2 the arr which follows the swaps.
+     */
     private void challengeFourQuickSort(int[] arr, int[][] arr2) {
         challengeFourQuickSort(arr, arr2, 0, arr.length - 1);
     }
@@ -41,7 +44,7 @@ public class Team8SortCompetition extends SortCompetition {
             int pivot = challengeFourPartition(arr, arr2, left, right);
 
             challengeFourQuickSort(arr, arr2, left, pivot - 1);
-            challengeFourQuickSort(arr, arr2,pivot + 1, right);
+            challengeFourQuickSort(arr, arr2, pivot + 1, right);
         }
     }
 
@@ -101,6 +104,8 @@ public class Team8SortCompetition extends SortCompetition {
 
     /**
      * Returns the median of an array, assuming the array passed is already sorted.
+     * If the array is even, the median is the average between the middle two integers.
+     *
      * @param arr a sorted array.
      * @return the median of the array passed.
      */
