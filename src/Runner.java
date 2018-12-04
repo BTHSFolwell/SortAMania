@@ -48,7 +48,15 @@ public class Runner {
         Team16SortCompetition thingyCooler = new Team16SortCompetition();
         thingyCooler.addTime(500);
 
-        team16.challengeFive(compArr, thingyCooler);
+        printComparable(compArr);
+
+        time = System.currentTimeMillis();
+        index = team16.challengeFive(compArr, thingyCooler);
+        time = System.currentTimeMillis() - time;
+        System.out.println("Challenge Five Time Taken: " + time * 0.001 + " seconds.");
+        System.out.println("The index of " + thingyCooler.returnNumber() + " is " + index);
+        team16.addTime(time);
+        printComparable(compArr);
     }
 
 

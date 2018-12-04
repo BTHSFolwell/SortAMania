@@ -111,7 +111,7 @@ public class Team16SortCompetition extends SortCompetition {
             int i = x - 1;
 
             for (int j = x; j < y; j ++) {
-                if (arr[j].compareTo(z) >= 0) {
+                if (arr[j].compareTo(z) <= 0) {
                     i ++;
                     Comparable k = arr[i]; arr[i] = arr[j]; arr[j] = k;
                 }
