@@ -3,7 +3,7 @@ public class Runner
 {
     public static void main(String[] args)
     {
-        //Setup
+        //Setupk
         SortCompetition team16 = new Team16SortCompetition();
         System.out.println(team16.greeting());
         int[] randIntArr = SortAlgorithm.randomIntsArr(10000);

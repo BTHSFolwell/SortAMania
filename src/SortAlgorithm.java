@@ -45,20 +45,6 @@ public class SortAlgorithm
         return arr;
     }
 
-    //Creates a random string
-    public static String randomString(int length)
-    {
-        String str = "";
-        int i = 0;
-        while (i < length)
-        {
-            char c = (char) ((Math.random()*26)+97);
-            str = str + c;
-            i++;
-        }
-        return str;
-    }
-
     //Creates a random object array
     public static Object[] ThingyArr(int length)
     {
@@ -189,17 +175,6 @@ public class SortAlgorithm
 
     //Returns the index of a string in a string array
     public static int getIdx(Comparable[] arr, Comparable query)
-    {
-        for (int i = 0; i < arr.length - 1; i++)
-        {
-            if (arr[i].equals(query))
-                return i;
-        }
-        return -1;
-    }
-
-    //Returns the index of an object in a string array
-    public static int getIdx(Thingy[] arr, String query)
     {
         for (int i = 0; i < arr.length - 1; i++)
         {
