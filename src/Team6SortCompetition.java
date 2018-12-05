@@ -53,7 +53,7 @@ public class Team6SortCompetition extends SortCompetition {
                 medians[i] = median;
             }
         }
-            Utilities.quickSortMedians(medians,arr, 0, medians.length - 1);
+        Utilities.quickSortMedians(medians,arr, 0, medians.length - 1);
 
         if(medians.length % 2 == 1){
             int idx = (int)Math.floor(medians.length / 2);

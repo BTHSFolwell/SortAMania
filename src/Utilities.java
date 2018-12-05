@@ -83,7 +83,7 @@ public class Utilities {
             if(medians[j] <= pivot){
                 i++;
                 swap(medians, i ,j);
-                swap2D(arr,i,j);
+                swap2(arr,i,j);
             }
         }
         swap(medians, i+1, right);
@@ -97,6 +97,12 @@ public class Utilities {
             arr[i][j] = temp;
         }
     }
+    public static void swap2(int[][] arr, int i, int j) {
+        int[] temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
     public static int[] genIntArr(int count){
         int[] arr = new int[count];
         for(int i = 0; i < count; i++){
@@ -149,12 +155,5 @@ public class Utilities {
             arr[i] = new Thingy();
         }
         return arr;
-    }
-    public static String toString(Thingy[] arr) {
-        String x = "";
-        for (int i = 0; i < arr.length; i++) {
-            x = x+arr[i];
-        }
-        return x;
     }
 }
