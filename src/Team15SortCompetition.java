@@ -60,6 +60,13 @@ public class Team15SortCompetition extends SortCompetition{
             System.out.print(arr[i] + " ");
         System.out.println();
     }
+    static void printArr2d(int arr[][])
+    {
+        int n = arr.length;
+        for (int i=0; i<n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
     static void printArrStr(String arr[])
     {
         int n = arr.length;
@@ -119,14 +126,9 @@ public class Team15SortCompetition extends SortCompetition{
     }
 
     @Override
-    public int challengeFour(int[][] arr) {
-        int[] medians = new int[arr.length];
-        for (int i = 0; i < arr.length; i ++) {
-            quickSort(arr[i], 0, arr[i].length - 1);
-            medians[i] = arr[i][arr[i].length/2 - 1];
-        }
-        quickSort(medians, 0, medians.length - 1);
-        return medians[medians.length/2 - 1];
+    public int challengeFour(int arr[][])
+    {
+        return 0;
     }
 
     @Override

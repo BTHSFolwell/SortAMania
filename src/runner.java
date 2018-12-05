@@ -34,25 +34,14 @@ public  class runner {
        Team15SortCompetition.printArr(randIntArr1);
 
        long time2 = System.currentTimeMillis();
-       int median2 = Team15.challengeOne(randIntArr1);
+       int median2 = Team15.challengeThree(randIntArr1);
        time2 = System.currentTimeMillis() - time2;
-       System.out.println("Challenge One Time Taken : " + time2 * 0.001 + " Seconds");
+       System.out.println("Challenge Three Time Taken : " + time2 * 0.001 + " Seconds");
        System.out.println("Median equals: " + median2);
 
        System.out.println("Sorted");
        Team15SortCompetition.printArr(randIntArr1);
        System.out.println("--------------------------------");
-
-       int[][] rand2DIntArr = new int[1000][1000];
-       for (int i = 0; i < rand2DIntArr.length; i ++) {
-          rand2DIntArr[i] = Team15SortCompetition.randomIntsArr(1000);
-       }
-       long time3 = System.currentTimeMillis();
-       int median3 = Team15.challengeFour(rand2DIntArr);
-       time3 = System.currentTimeMillis() - time;
-       System.out.println("Challenge Four Time Taken: " + time3 * 0.001 + " seconds.");
-       System.out.println("The median is " + median3);
-       Team15.addTime(time);
 
     }
 }
