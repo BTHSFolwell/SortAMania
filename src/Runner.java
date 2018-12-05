@@ -20,9 +20,10 @@ public class Runner {
         System.out.println("Challenge 1 time: " + duration + "ms.\n");
         //Challenge 2
         long startTime2 = System.currentTimeMillis();
-        System.out.println("Challenge 2: " + sortComp.challengeTwo();
+        System.out.println("Challenge 2: " + sortComp.challengeTwo(Utilities.randomStringArr(10000,5),Utilities.randomWord(5)));
         long endTime2 = System.currentTimeMillis();
         long duration2 = (endTime2 - startTime2);
+        System.out.println("Challenge 2 time: " + duration2 + "ms.\n");
         //Challenge 3
         //System.out.println(Arrays.toString(challenge3Arr));
         long startTime3 = System.currentTimeMillis();
