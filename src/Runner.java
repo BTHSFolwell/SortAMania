@@ -16,23 +16,28 @@ public class Runner {
         System.out.println("Challenge 1 Median: " + sortComp.challengeOne(challenge1Arr));
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
-        //System.out.println(Arrays.toString(challenge1Arr));
-        /*System.out.println("Challenge 1 time: " + duration + "ms.\n");
+        System.out.println(Arrays.toString(challenge1Arr));
+        System.out.println("Challenge 1 time: " + duration + "ms.\n");
+        //Challenge 2
+        long startTime2 = System.currentTimeMillis();
+        System.out.println("Challenge 2: " + sortComp.challengeTwo();
+        long endTime2 = System.currentTimeMillis();
+        long duration2 = (endTime2 - startTime2);
         //Challenge 3
         //System.out.println(Arrays.toString(challenge3Arr));
-        startTime = System.currentTimeMillis();
+        long startTime3 = System.currentTimeMillis();
         System.out.println("Challenge 3 Median: " + sortComp.challengeThree(challenge3Arr));
-        endTime = System.currentTimeMillis();
-        duration = (endTime - startTime);
+        long endTime3 = System.currentTimeMillis();
+        long duration3 = (endTime3 - startTime3);
         //System.out.println(Arrays.toString(challenge3Arr));
-        System.out.println("Challenge 3 time: " + duration + "ms.\n");*/
+        System.out.println("Challenge 3 time: " + duration3 + "ms.\n");
         //Challenge 4
         System.out.println(Arrays.deepToString(challenge4Arr));
-        startTime = System.currentTimeMillis();
+        long startTime4 = System.currentTimeMillis();
         System.out.println("Challenge 4 Median: " + sortComp.challengeFour(challenge4Arr));
-        endTime = System.currentTimeMillis();
-        duration = (endTime - startTime);
-        System.out.println("Challenge 4 time: " + duration + "ms.\n");
+        long endTime4 = System.currentTimeMillis();
+        long duration4 = (endTime4 - startTime4);
+        System.out.println("Challenge 4 time: " + duration4 + "ms.\n");
         System.out.println(Arrays.deepToString(challenge4Arr));
         Thingy[] thingyArr = new Thingy[10000];
         for (int i = 0; i < 10000; i++) {

@@ -38,7 +38,7 @@ public class Team6SortCompetition extends SortCompetition {
     }
 
     public int challengeFour(int[][] arr){
-        int[] medians = new int[1000];
+        int[] medians = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
             Utilities.quickSort(arr[i], 0, arr[i].length-1);
             if(arr[i].length % 2 == 1){
