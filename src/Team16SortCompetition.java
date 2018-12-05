@@ -1,8 +1,6 @@
 public class Team16SortCompetition extends SortCompetition {
 
-    public double returnNumber() {
-        return this.totalTime;
-    }
+
     public int challengeOne(int[] arr) {
         /*  challengeOne: Standard sort and process
             Data Set - an array of 10,000 random integers between 0-10000
@@ -33,15 +31,7 @@ public class Team16SortCompetition extends SortCompetition {
         }
 
     public int challengeTwo(String[] arr, String query) {
-        for (int i = 0; i < arr.length; i ++) {
-            for (int j = 0; j < arr.length; j ++) {
-                if (arr[i].compareTo(arr[j]) <= 0) {
-                    String k = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = k;
-                }
-            }
-        }
+        quickSortStr(arr, 0, arr.length-1);
         boolean x = false; int lwr = 0; int upr = arr.length - 1; int mid = arr.length/2 - 1;
         while (!x) {
             if (query.compareTo(arr[mid]) > 0) {
@@ -57,6 +47,27 @@ public class Team16SortCompetition extends SortCompetition {
         }
         return -1;
     }
+
+        private void quickSortStr(String[] arr, int x, int y) {
+            if (x < y) {
+                int z = partStr(arr, x, y);
+                quickSortStr(arr, x, z - 1);
+                quickSortStr(arr, z + 1, y);
+            }
+        }
+        private int partStr(String[] arr, int x, int y) {
+            String z = arr[y];
+            int i = x - 1;
+
+            for (int j = x; j < y; j ++) {
+                if (arr[j].compareTo(z) <= 0) {
+                    i ++;
+                    String k = arr[i]; arr[i] = arr[j]; arr[j] = k;
+                }
+            }
+            String l = arr[i + 1]; arr[i + 1] = arr[y]; arr[y] = l;
+            return i + 1;
+        }
 
     public int challengeThree(int[] arr) {
         for (int i = 0; i < arr.length; i ++) {

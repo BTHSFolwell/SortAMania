@@ -48,15 +48,13 @@ public class Runner {
         Team16SortCompetition thingyCooler = new Team16SortCompetition();
         thingyCooler.addTime(500);
 
-        printComparable(compArr);
 
         time = System.currentTimeMillis();
         index = team16.challengeFive(compArr, thingyCooler);
         time = System.currentTimeMillis() - time;
         System.out.println("Challenge Five Time Taken: " + time * 0.001 + " seconds.");
-        System.out.println("The index of " + thingyCooler.returnNumber() + " is " + index);
+        System.out.println("The index of " + thingyCooler.totalTime + " is " + index);
         team16.addTime(time);
-        printComparable(compArr);
     }
 
 
@@ -101,12 +99,5 @@ public class Runner {
                 System.out.println(arr[i][j]);
             }
         }
-    }
-    public static void printComparable(Comparable[] arr) {
-        String output = "";
-        for (int i = 0; i < arr.length; i ++) {
-            output += arr[i].returnNumber() + " ";
-        }
-        System.out.println(output);
     }
 }
