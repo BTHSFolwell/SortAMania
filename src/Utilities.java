@@ -83,7 +83,7 @@ public class Utilities {
             if(medians[j] <= pivot){
                 i++;
                 swap(medians, i ,j);
-                swap2(arr,i,j);
+                swap2D(arr,i,j);
             }
         }
         swap(medians, i+1, right);
