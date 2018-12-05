@@ -19,7 +19,7 @@ public class Runner {
         System.out.println("Unsorted");
         printStringArr(randStringArr);
         time = System.currentTimeMillis();
-        sorter.challengeTwo(randStringArr, "aifsj");
+        sorter.challengeTwo(randStringArr, randStringArr[0]);
         time = System.currentTimeMillis()-time;
         System.out.println("Challenge Two Time Taken: " + (time * 0.001) + " seconds");
         System.out.println("Sorted");

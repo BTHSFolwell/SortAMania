@@ -43,23 +43,60 @@ public class Team4SortCompetition extends SortCompetition{
     //Challenge Two
     @Override
     public int challengeTwo(String[] arr, String query) { //string sorting and searching
-        bubbleSort(arr);
-        for(int i = 0;i<arr.length-1;i++) {
-            if(arr[i].compareTo(arr[i+1]) > 0) {
-                return i;
-            }
-        }
+        mergeSort(arr, query);
         return -1;
     }
 
-    public static void bubbleSort(String[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length - 1; j++) {
-                if (arr[j + 1].compareTo(arr[j]) < 0) {
-                    String temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
+    public static void mergeSort(String[] elements, String query){
+        int n = elements.length;
+        String[] temp = new String[n];
+        mergeSortHelper(elements, 0, n-1, query, temp);
+        for(int x = 0; x < elements.length; x++){
+            System.out.print(elements[x] + " ");
+        }
+        System.out.print("\n");
+
+    }
+
+    private static void mergeSortHelper(String[] elements, int from, int to, String match, String[] temp) {
+        if (from < to) {
+            int middle = (from + to) / 2;
+            mergeSortHelper(elements, from, middle, match, temp);
+            mergeSortHelper(elements, middle + 1, to, match, temp);
+            merge(elements, from, middle, to, match, temp);
+        }
+    }
+
+    private static void merge(String[] elements, int from, int mid, int to, String match, String[] temp){
+        int i = from;
+        int j = mid + 1;
+        int k  = from;
+        while (i<= mid && j <=to){
+            if(elements[i].compareTo(elements[j]) < 0){
+                temp[k] = elements[i];
+                i++;
+            }
+            else{
+                temp[k] = elements[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<=mid){
+            temp[k] = elements[i];
+            i++;
+            k++;
+        }
+        while (j <=to){
+            temp[k] = elements[j];
+            j++;
+            k++;
+        }
+        for(k = from; k <= to; k++){
+            elements[k] = temp[k];
+            if (temp[k].equals(match)) {
+                System.out.println("THIGNEINGIEGNGI");
+                System.out.println(k);
             }
         }
     }
