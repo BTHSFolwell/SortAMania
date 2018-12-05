@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class Sorts
 {
+    //Creates a random array of integers with a specified size.
     public static int[] buildArray(int size)
     {
         int[] arr = new int[size];
@@ -13,6 +14,35 @@ public class Sorts
         return arr;
     }
 
+    //Creates a random array of integers with one place swapped. Effectively 99% sorted
+    public static int[] buildArray3(int size)
+    {
+        int[] arr = new int[size];
+        for(int i = 0; i < size; i ++)
+        {
+            arr[i] = (int)(Math.random() * 10000);
+        }
+
+        quickSort(arr,0,arr.length-1);
+
+        int swap = (int)(Math.random() * arr.length);
+        int swap2 = (int)(Math.random() * arr.length);
+
+        while (swap == swap2)
+        {
+             swap = (int)(Math.random() * arr.length);
+             swap2 = (int)(Math.random() * arr.length);
+        }
+
+
+        swap(arr,swap,swap2);
+
+
+
+        return arr;
+    }
+
+    //swaps place in an array
     public static void swap(int[] arr, int index1, int index2)
     {
         int temp = arr[index1];
@@ -36,6 +66,7 @@ public class Sorts
         swap(arr,i+1,right);
         return i+1;
     }
+
 
     public static void quickSort(int[] arr, int left, int right)
     {
@@ -62,19 +93,17 @@ public class Sorts
         }
     }
 
-    public static void quickSort3(int[] arr, int left, int right)
-    {
-        if (left < right)
-        {
-            int ranMid = (int)(((right - left + 1) * Math.random()) + left) ;
-
-            int pivot = partition(arr, left, right);
-
-            quickSort3(arr,left, pivot -1);
-            quickSort3(arr, pivot + 1, right);
-
+    //Bubble sort that works for comparable[]
+    public static void bubbleSortThing(Comparable[] comparables) {
+        for (int i = 0; i < comparables.length; i++) {
+            for (int j = i + 1; j < comparables.length; j++) {
+                if (comparables[i].compareTo(comparables[j]) > 0) {
+                    swapComparables(comparables,i,j);
+                }
+            }
         }
     }
+
 
 
 
@@ -84,12 +113,22 @@ public class Sorts
     {
         return (int)((max - min + 1) * Math.random() + min);
     }
+
+    //Swaps the location of two strings in an array
     public static void swapString(String[] arr, int i, int j) {
         String temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
+    //Swaps the locations of two Comparables
+    public static void swapComparables(Comparable[] arr, int i, int j) {
+        Comparable temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    //Creates a random array of strings
     public static String [] randomStringArr(int num, int length)
     {
         String [] arr = new String[num];
@@ -110,22 +149,10 @@ public class Sorts
     }
 
 
-      //  System.out.println(Arrays.deepToString(arr));
 
 
-    public static void arrPrint2d(int [][] x) //prints the board
-    {
-        for (int[] i : x)
-        {
-            for (int j : i)
-            {
-                System.out.print(j + "  ");
 
-            }
-            System.out.println();
-        }
-    }
-
+//Creates a random 2d array
     public static int[][] Arr2d(int width, int height) {
         int[][] arr = new int[height][width];
         for (int i = 0; i < arr.length; i++) {
@@ -136,7 +163,7 @@ public class Sorts
         }
         return arr;
     }
-
+//Creates a random array of things
     public static Thing[] randomThingArr(int num)
     {
         Thing[] things = new Thing[num];
@@ -148,10 +175,8 @@ public class Sorts
     }
 
 
-   /* public double returnNumber()
-    {
-        return this.totalTime;
-    }
-    */
+
+
+
 
 }

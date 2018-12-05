@@ -6,7 +6,13 @@ public class Thing implements Comparable<Thing> {
         this.value = (int)(Math.random()*10000);
     }
 
+    public int returnValue()
+    {
+        return this.value;
+    }
+
     @Override
+
 
     public int compareTo (Thing other)
     {

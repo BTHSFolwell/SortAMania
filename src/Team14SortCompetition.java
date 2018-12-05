@@ -48,7 +48,7 @@ public class Team14SortCompetition extends SortCompetition {
         //Sorts.arrPrint2d(arr);
 
         Sorts.quickSort(medians,0,medians.length-1);
-        System.out.println(Arrays.toString(medians));
+        //System.out.println(Arrays.toString(medians));
 
         int finalmedian = (medians[medians.length/2] + medians[(medians.length/2)-1])/2;
         return finalmedian;
@@ -56,7 +56,16 @@ public class Team14SortCompetition extends SortCompetition {
     }
     @Override
     public int challengeFive(Comparable[] arr, Comparable query) {
-        
+        Sorts.bubbleSortThing(arr);
+        for (int i=0;i<arr.length;i++)
+        {
+            if (arr[i].compareTo(query) == 0)
+            {
+                return i ;
+            }
+        }
+        return -1;
+
     }
 
     @Override
