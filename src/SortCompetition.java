@@ -1,22 +1,19 @@
 import java.util.Arrays;
 
 public abstract class SortCompetition implements Comparable <SortCompetition> {
-
 	int number;
 	double totalTime = 0.0;
 	
-	public int compareTo(SortCompetition t)
-	{
-		return (int)(this.totalTime - t.totalTime); 
+	public int compareTo(SortCompetition t) {
+		return (int)(this.totalTime - t.totalTime);
 	}
 	
-	public void setNumber(int n)
-	{
+	public void setNumber(int n) {
 		number = n;
 	}
-	public int getNum()
-	{
-		return number; 
+
+	public int getNum() {
+		return number;
 	}
 	 
 	public void addTime(double avg) {
