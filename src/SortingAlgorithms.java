@@ -30,8 +30,8 @@ class SortingAlgorithms {
         arr[j] = temp;
     }
 
-    static void swap(Thingy[] arr, int i, int j) {
-        Thingy temp = arr[i];
+    static void swap(Comparable[] arr, int i, int j) {
+        Comparable temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
