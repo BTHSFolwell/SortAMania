@@ -3,12 +3,14 @@ public class Runner
 {
     public static void main(String[] args)
     {
+        //Setup
         SortCompetition team16 = new Team16SortCompetition();
         System.out.println(team16.greeting());
         int[] randIntArr = SortAlgorithm.randomIntsArr(10000);
         int[] randIntArray = SortAlgorithm.randomIntsArr(100000);
         int[][] randIntArrs = SortAlgorithm.randomIntsArrs(1000);
         String[] randStringArr = SortAlgorithm.randomStringArr(10000, 5);
+        String randString2 = randStringArr[(int) (Math.random() * randStringArr.length)];
         Object[] randObjectArr = SortAlgorithm.ThingyArr(1000);
         Thingy thingyString = (Thingy) randObjectArr[(int) (Math.random() * randObjectArr.length)];
 
@@ -21,11 +23,10 @@ public class Runner
 
         //ChallengeTwo
         long time2 = System.currentTimeMillis();
-        String randString2 = SortAlgorithm.randomString(5);
         int idx2 = team16.challengeTwo(randStringArr, randString2);
         time2 = System.currentTimeMillis() - time2;
         System.out.println("Challenge Two Time Taken: " + time2 * 0.001 + " Seconds");
-        System.out.println("Position of '" + randString2 + "' : " + idx2);
+        System.out.println("Position of '" + randString2 + "': " + idx2);
 
         //ChallengeThree
         long time3 = System.currentTimeMillis();
@@ -46,6 +47,6 @@ public class Runner
         int idx4 = team16.challengeFive((Comparable[]) randObjectArr, thingyString);
         time5 = System.currentTimeMillis() - time5;
         System.out.println("Challenge Five Time Taken: " + time5 * 0.001 + " Seconds");
-        System.out.println("Position of '" + thingyString + "' : " + idx4);
+        System.out.println("Position of '" + thingyString + "': " + idx4);
     }
 }
