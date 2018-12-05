@@ -43,7 +43,25 @@ public class Team4SortCompetition extends SortCompetition{
     //Challenge Two
     @Override
     public int challengeTwo(String[] arr, String query) { //string sorting and searching
-        return 0;
+        bubbleSort(arr);
+        for(int i = 0;i<arr.length-1;i++) {
+            if(arr[i].compareTo(arr[i+1]) > 0) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void bubbleSort(String[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - 1; j++) {
+                if (arr[j + 1].compareTo(arr[j]) < 0) {
+                    String temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
     }
 
     public static String[] randomStringArr(int num, int length){
