@@ -150,4 +150,11 @@ public class Utilities {
         }
         return arr;
     }
+    public static String toString(Thingy[] arr) {
+        String x = "";
+        for (int i = 0; i < arr.length; i++) {
+            x = x+arr[i];
+        }
+        return x;
+    }
 }

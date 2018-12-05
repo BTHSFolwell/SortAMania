@@ -8,14 +8,13 @@ public class Runner {
         int[] challenge1Arr = Utilities.genIntArr(10000);
         int[] challenge3Arr = Utilities.mostlySortedArr(75000,25000);
         int[][] challenge4Arr = Utilities.gen2dInt(10, 10);
-        Thingy[] challenge5Arr = Utilities.genComparableArr(10000);
-        System.out.println(challenge5Arr);
+        //Thingy[] challenge5Arr = Utilities.genComparableArr(10000);
         Thingy[] thingyArr = new Thingy[10000];
         for (int i = 0; i < 10000; i++) {
             thingyArr[i] = new Thingy();
         }
         Thingy query = thingyArr[(int)Math.random()*thingyArr.length];
-        System.out.println(sortComp.challengeFive(challenge5Arr, query));
+        System.out.println("Challenge 5: " + sortComp.challengeFive(thingyArr, query));
         //Challenge 1
         //System.out.println(Arrays.toString(challenge1Arr));
         long startTime = System.currentTimeMillis();
