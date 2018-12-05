@@ -80,19 +80,19 @@ public class Runner {
 
         //Challenge Five
         System.out.println("Challenge Five\n------------------------------------------");
-        Comparable[] randomComparableArr = randomComparableArr(10000);
-        Team11SortCompetition.bubbleComparableSort(randomComparableArr);
-        int indexNumber1 = team11.challengeFive(randomComparableArr,"fasff");
+        Thingy[] randComparableArr = randComparableArr(10000);
+        Thingy thingy = new Thingy();
+        System.out.println("Unsorted");
+        printComparableArr(randComparableArr);
 
         time = System.currentTimeMillis();
+        int index = team11.challengeFive(randComparableArr, thingy);
         time = System.currentTimeMillis() - time;
-        System.out.println("Challenge Five Time Taken: " + time  + " Seconds");
+        System.out.println("\nChallenge Five Time Taken: " + (time * 0.001) + " Seconds");
+        System.out.println("Thingy appears at: " + index);
 
-
-        if (indexNumber1 >= 0)
-            System.out.println("Index is found at: " + indexNumber);
-        else
-            System.out.println("Index not found.");
+        System.out.println("\nSorted");
+        printComparableArr(randComparableArr);
     }
 
     public static int[] randomIntsArr(int count) {
@@ -126,14 +126,12 @@ public class Runner {
         }
         return arr;
     }
-    public static Comparable[] randomComparableArr(int num) {
-        Comparable[] arr = new Comparable[num];
-        for (int i = 0; i < num; i++) {
-            SortCompetition temp = new Team11SortCompetition();
-            temp.addTime(Math.random() * (num + 1));
-            arr[i] = temp;
+    public static Thingy[] randComparableArr(int num){
+        Thingy[] things = new Thingy[num];
+        for(int i = 0; i < num; i ++){
+            things[i] = new Thingy();
         }
-        return arr;
+        return things;
     }
     public static void printArr(int[] arr) {
         System.out.println(Arrays.toString(arr));
@@ -145,7 +143,7 @@ public class Runner {
     {
         System.out.println(Arrays.deepToString(arr));
     }
-    public static void printComparableArr(Comparable[] arr)
+    public static void printComparableArr(Thingy[] arr)
     {
         System.out.println(Arrays.toString(arr));
     }

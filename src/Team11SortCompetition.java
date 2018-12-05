@@ -156,10 +156,10 @@ public class Team11SortCompetition extends SortCompetition {
     }
 
 
-    public int challengeFive(Comparable[] arr, Comparable query) {
+    public int challengeFive(Thingy[] arr, Thingy query) {
         bubbleComparableSort(arr);
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].equals(query)) {
+            if (arr[i].compareTo(query) >= 0) {
                 return i;
             }
         }
