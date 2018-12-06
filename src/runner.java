@@ -10,9 +10,9 @@ public class runner {
         System.out.println("challenge 1 median equals: " + median);
         printArr(randIntArr);
 
-        String[] randStrArr = randomStringArr(10000,5);
-        String[] randStringArr2 = randomStringArr(10000,1);
-        printArr(team10.challengeTwo(randStrArr,randStringArr2));
+//         String[] randStrArr = randomStringArr(10000,5);
+//         String[] randStringArr2 = randomStringArr(10000,1);
+//         printArr(team10.challengeTwo(randStrArr,randStringArr2));
 
 //        public static int randomStringArr(int num)
 //        {
