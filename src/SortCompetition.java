@@ -12,6 +12,7 @@ public abstract class SortCompetition implements Comparable <SortCompetition> {
 	{
 		number = n;
 	}
+
 	public int getNum()
 	{
 		return number;
