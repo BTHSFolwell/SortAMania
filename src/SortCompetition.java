@@ -1,6 +1,5 @@
 public abstract class SortCompetition implements Comparable <SortCompetition> {
 
-
 	int number;
 	double totalTime = 0.0;
 
@@ -61,3 +60,4 @@ public abstract class SortCompetition implements Comparable <SortCompetition> {
 	Task: Sort the array by the compareTo method, and determine if it contains the element given. Return the position of the object, or -1 if not found.
 	Hint: You must use a stable sort for this challenge, equivalent objects should stay in the same order.
  */
+
