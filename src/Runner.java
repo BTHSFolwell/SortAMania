@@ -3,6 +3,7 @@ public class Runner {
         Team4SortCompetition sorter = new Team4SortCompetition();
         int[] randIntArr = sorter.randomIntsArr(10000);
         String [] randStringArr = sorter.randomStringArr(10000, 5);
+        int [] randIntArrThree = sorter.randomIntsArr(100000);
 
         //Challenge One
         System.out.println("Unsorted");
@@ -25,6 +26,26 @@ public class Runner {
         System.out.println("Sorted");
         printStringArr(randStringArr);
 
+        //Challenge Three
+        System.out.println("Unsorted");
+        printIntArr(randIntArrThree);
+        time = System.currentTimeMillis();
+        sorter.challengeThree(randIntArrThree);
+        time = System.currentTimeMillis()-time;
+        System.out.println("Challenge Three Time Taken: " + (time * 0.001) + " seconds");
+        System.out.println("Sorted");
+        printIntArr(randIntArrThree);
+        System.out.println("The median is: " + randIntArrThree[49999]);
+
+        //Challenge Four
+        int[][] four = randomTwoDIntArr(1000);
+        //printTwoDArr(four);
+        System.out.println("Unsorted");
+        time = System.currentTimeMillis();
+        System.out.println("Median: " + sorter.challengeFour(four));
+        time = System.currentTimeMillis() - time;
+        System.out.println("Sorted");
+        System.out.println("Challenge Four Time Taken: "+ time / 1000 + " seconds");
     }
 
     public static int[] printIntArr(int[] arr){
@@ -33,6 +54,16 @@ public class Runner {
         }
         System.out.print("\n");
         return null;
+    }
+
+    public static int[][] randomTwoDIntArr(int num) {
+        int[][] arr = new int[num][num];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = (int) (Math.random() * 10001);
+            }
+        }
+        return arr;
     }
 
     public static String[] printStringArr(String[] arr){
