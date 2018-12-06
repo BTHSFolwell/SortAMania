@@ -108,5 +108,76 @@ public class Team10SortCompetition {
         }
         return (int)median;
     }
+
+    private void quickSort(int[] arr, int x, int y) {
+        if (x < y) {
+            int z = part(arr, x, y);
+            quickSort(arr, x, z - 1);
+            quickSort(arr, z + 1, y);
+        }
+    }
+
+    private int part(int[] arr, int x, int y) {
+        int z = arr[y];
+        int i = x - 1;
+
+        for (int j = x; j < y; j ++) {
+            if (arr[j] <= z) {
+                i ++;
+                int k = arr[i]; arr[i] = arr[j]; arr[j] = k;
+            }
+        }
+        int l = arr[i + 1]; arr[i + 1] = arr[y]; arr[y] = l;
+        return i + 1;
+    }
+
+    public int challengeFour(int[][] arr) {
+        int[] medians = new int[arr.length];
+        for (int i = 0; i < arr.length; i ++) {
+            quickSort(arr[i], 0, arr[i].length - 1);
+            medians[i] = arr[i][arr[i].length/2 - 1];
+        }
+        quickSort(medians, 0, medians.length - 1);
+        return medians[medians.length/2 - 1];
+    }
+
+    public int challengeFive(Comparable[] arr, Comparable query) {
+        quickSortComp(arr, 0, arr.length - 1);
+        boolean x = false; int lwr = 0; int upr = arr.length - 1; int mid = arr.length/2 - 1;
+        while (!x) {
+            if (query.compareTo(arr[mid]) > 0) {
+                lwr = mid; mid = ((upr - lwr) / 2) + lwr;
+            }
+            else if (query.compareTo(arr[mid]) < 0) {
+                upr = mid; mid = ((upr - lwr) / 2) + lwr;
+            }
+            else return mid;
+            if (upr <= lwr || lwr == mid || upr == mid) {
+                x = true;
+            }
+        }
+        return -1;
+    }
+
+    private void quickSortComp(Comparable[] arr, int x, int y) {
+        if (x < y) {
+            int z = partComp(arr, x, y);
+            quickSortComp(arr, x, z - 1);
+            quickSortComp(arr, z + 1, y);
+        }
+    }
+    private int partComp(Comparable[] arr, int x, int y) {
+        Comparable z = arr[y];
+        int i = x - 1;
+
+        for (int j = x; j < y; j ++) {
+            if (arr[j].compareTo(z) <= 0) {
+                i ++;
+                Comparable k = arr[i]; arr[i] = arr[j]; arr[j] = k;
+            }
+        }
+        Comparable l = arr[i + 1]; arr[i + 1] = arr[y]; arr[y] = l;
+        return i + 1;
+    }
 }
 
